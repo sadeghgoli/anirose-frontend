@@ -1,0 +1,77 @@
+* {
+    direction: rtl;
+    font-family: var(--font-peyda), sans-serif;
+}
+.piner{
+    font-family: var(--font-pinar), 'pinar', sans-serif !important;
+}
+body {
+    background-color: #F8F9FB;
+}
+::selection {
+    background-color: #64a39a;
+    color: #000000;
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 0.3s ease-out;
+}
+
+/* انیمیشن دات پالس وردپرسی */
+@keyframes dotPulse {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+.animate-dot-pulse {
+    animation: dotPulse 0.65s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
+}
+
+/* انیمیشن محو خیلی کم برای دکمه پایین */
+@keyframes pulseSubtle {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-pulse-subtle {
+    animation: pulseSubtle 1s ease-in-out infinite;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}

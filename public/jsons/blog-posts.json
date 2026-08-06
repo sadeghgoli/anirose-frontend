@@ -1,0 +1,45 @@
+{
+  "status": "success",
+  "data": {
+    "titleIcon": "/images/test/Group-3-min.png",
+    "titleEn": "Blog content",
+    "titleFa": "مطالب وبلاگ",
+    "posts": [
+      {
+        "id": 1,
+        "title": "گیاهان دمنوش جدید",
+        "image": "/images/test/b1.jpg",
+        "slug": "گیاهان-دمنوش-جدید",
+        "excerpt": ""
+      },
+      {
+        "id": 2,
+        "title": "زمین های کشاورزی",
+        "image": "/images/test/b4.jpg",
+        "slug": "زمین-های-کشاورزی",
+        "excerpt": ""
+      },
+      {
+        "id": 3,
+        "title": "معرفی گیاهان دارویی",
+        "image": "/images/test/b3.jpg",
+        "slug": "معرفی-گیاهان-دارویی",
+        "excerpt": ""
+      },
+      {
+        "id": 4,
+        "title": "معرفی آویشن جدید",
+        "image": "/images/test/b2.jpg",
+        "slug": "معرفی-آویشن-جدید",
+        "excerpt": ""
+      },
+      {
+        "id": 5,
+        "title": "معرفی شرکت آنی رز",
+        "image": "/images/test/b1.jpg",
+        "slug": "معرفی-شرکت-آنی-رز",
+        "excerpt": ""
+      }
+    ]
+  }
+}

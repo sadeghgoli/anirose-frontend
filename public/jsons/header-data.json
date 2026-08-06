@@ -1,0 +1,63 @@
+{
+  "status": "success",
+  "data": {
+    "topBar": {
+      "text": "آنی رز، سلامتی هر روز!",
+      "leftIcon": "/images/test/Group-2-1.png",
+      "rightIcon": "/images/test/Group-2-1.png"
+    },
+    "logo": {
+      "src": "/images/test/Group-43-1.png",
+      "alt": "Group 43 (1)",
+      "link": "/"
+    },
+    "mainMenu": [
+      { "id": 1, "title": "صفحه اصلی", "link": "/" },
+      { "id": 2, "title": "فروشگاه", "link": "/shop" },
+      { "id": 3, "title": "مشاوره طب سنتی", "link": "/shop" },
+      { "id": 4, "title": "درباره ما", "link": "/about" },
+      { "id": 5, "title": "تماس با ما", "link": "/contact" }
+    ],
+    "secondaryMenu": [
+      { "id": 1, "title": "بلوبری", "link": "/shop" },
+      { "id": 2, "title": "گل مریم", "link": "/shop" },
+      { "id": 3, "title": "آویشن", "link": "/shop" },
+      { "id": 4, "title": "زیره", "link": "/shop" },
+      { "id": 5, "title": "گل محمدی", "link": "/shop" }
+    ],
+    "search": {
+      "placeholder": "     جستجو نمایید"
+    },
+    "cart": {
+      "emptyText": "هیچ محصولی در سبد خرید نیست.",
+      "emptyText2": "هیچ محصولی در سبد خرید شما وجود ندارد.",
+      "continueText": "خرید را ادامه دهید",
+      "totalText": "کل حجم:"
+    },
+    "userAccount": {
+      "text": "حساب کاربری",
+      "loginLink": "/login",
+      "dashboardLink": "/dashboard"
+    },
+    "tabletMenu": [
+      { "id": 1, "title": "صفحه اصلی", "link": "/" },
+      { "id": 2, "title": "فروشگاه", "link": "/shop" },
+      { "id": 3, "title": "همکاری با ما", "link": "#" },
+      { "id": 4, "title": "درباره ما", "link": "/about" },
+      { "id": 5, "title": "تماس با ما", "link": "/contact" }
+    ],
+    "mobileMenu": [
+      { "id": 1, "title": "صفحه اصلی", "link": "/" },
+      { "id": 2, "title": "فروشگاه", "link": "/shop" },
+      { "id": 3, "title": "همکاری با ما", "link": "#" },
+      { "id": 4, "title": "درباره ما", "link": "/about" },
+      { "id": 5, "title": "تماس با ما", "link": "/contact" }
+    ],
+    "bottomNav": [
+      { "id": 1, "title": "صفحه اصلی", "link": "/", "icon": "home" },
+      { "id": 2, "title": "فروشگاه", "link": "/shop", "icon": "shopping-basket" },
+      { "id": 3, "title": "سبد خرید", "link": "/cart", "icon": "shopping-cart" },
+      { "id": 4, "title": "حساب کاربری", "link": "/login", "icon": "user" }
+    ]
+  }
+}

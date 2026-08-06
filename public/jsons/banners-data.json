@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "data": {
+    "banners": [
+      {
+        "id": 1,
+        "badgeText": "گل محمدی",
+        "title": "به طراوت و عطر زندگی",
+        "bgImage": "/images/test/Frame-347-scaled.jpg"
+      },
+      {
+        "id": 2,
+        "badgeText": "گل مریم",
+        "title": "عطر بی‌نظیر طبیعت",
+        "bgImage": "/images/test/Frame-347-scaled2.jpg"
+      }
+    ]
+  }
+}

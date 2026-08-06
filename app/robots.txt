@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /profile
+Disallow: /orders
+Disallow: /orders/
+Disallow: /addresses
+Disallow: /checkout
+Disallow: /payment
+Disallow: /cart
+Disallow: /login
+Disallow: /api/
+
+Sitemap: https://aniroz.ir/sitemap.xml

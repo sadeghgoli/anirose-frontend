@@ -1,0 +1,54 @@
+{
+  "status": "success",
+  "data": {
+    "topImage": "/images/test/Asset-1-12.png",
+    "bgImage": "/images/test/Frame-69.jpg",
+    "slogan": {
+      "text": "آنی رز، سلامتی هر روز!\n",
+      "leftIcon": "/images/test/Group-7-min.png",
+      "rightIcon": "/images/test/Group-7-min.png"
+    },
+    "description": "فروشگاه آنلاین آنی رز، مرجع تخصصی خرید محصولات طبیعی، ارگانیک و بهداشتی با بالاترین کیفیت و مناسب‌ترین قیمت در سراسر ایران. ما به سلامت شما اهمیت می‌دهیم و بهترین محصولات را برای شما فراهم می‌کنیم.\n\n",
+    "socialLinks": [
+      { "name": "Facebook", "icon": "facebook", "url": "#" },
+      { "name": "Twitter", "icon": "twitter", "url": "#" },
+      { "name": "Youtube", "icon": "youtube", "url": "#" }
+    ],
+    "importantLinks": {
+      "title": "لینک های مهم",
+      "links": [
+        { "title": "صفحه اصلی", "url": "/" },
+        { "title": "فروشگاه", "url": "/shop" },
+        { "title": "درباره ما", "url": "/about" },
+        { "title": "تماس با ما", "url": "/contact" }
+      ]
+    },
+    "quickAccess": {
+      "title": "دسترسی سریع",
+      "links": [
+        { "title": "صفحه اصلی", "url": "/" },
+        { "title": "فروشگاه", "url": "/shop" },
+        { "title": "درباره ما", "url": "/about" },
+        { "title": "تماس با ما", "url": "/contact" }
+      ]
+    },
+    "contact": {
+      "title": "مسیر های ارتباطی",
+      "items": [
+        { "icon": "location", "text": "آدرس: تهران، میدان انقلاب،‌ کوچه سوم" },
+        { "icon": "phone", "text": "شماره تماس: ۰۹۱۲۳۴۵۶۷۸۹" },
+        { "icon": "clock", "text": "ساعت کاری : روز های کاری ساعت ۱۰ تا ۲۰" }
+      ]
+    },
+    "trustBadges": {
+      "title": "نماد های اعتماد",
+      "images": [
+        "/images/test/etehadiekeshvaripng.parspng-2.png",
+        "/images/test/samandehipng.parspng-3.png",
+        "/images/test/enamad-1-5.png"
+      ]
+    },
+    "bottomLogo": "/images/test/Asset-1-3-1.png",
+    "copyright": "تمام حقوق وبسایت آنی رز محفوظ است."
+  }
+}

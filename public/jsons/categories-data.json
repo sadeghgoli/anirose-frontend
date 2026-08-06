@@ -1,0 +1,35 @@
+{
+  "status": "success",
+  "data": {
+    "categories": [
+      {
+        "id": 1,
+        "name": "بلوبری",
+        "image": "/images/test/Frame-357.png",
+        "bgImage": "/images/test/1-min-2-1.png",
+        "link": "/shop/blueberry"
+      },
+      {
+        "id": 2,
+        "name": "آویشن",
+        "image": "/images/test/Frame-357.png",
+        "bgImage": "/images/test/1-min-2-1.png",
+        "link": "/shop/thyme"
+      },
+      {
+        "id": 3,
+        "name": "زیره",
+        "image": "/images/test/Frame-357.png",
+        "bgImage": "/images/test/1-min-2-1.png",
+        "link": "/shop/cumin"
+      },
+      {
+        "id": 4,
+        "name": "گل محمدی",
+        "image": "/images/test/Frame-357.png",
+        "bgImage": "/images/test/1-min-2-1.png",
+        "link": "/shop/rose"
+      }
+    ]
+  }
+}

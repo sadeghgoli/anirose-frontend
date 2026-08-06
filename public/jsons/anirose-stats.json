@@ -1,0 +1,40 @@
+{
+  "status": "success",
+  "data": {
+    "topLogo": "/images/test/Asset-1-3-1.png",
+    "leftLeaf": "/images/test/Group-7-min.png",
+    "centerLogo": "/images/test/QalamOnline-13-1.png",
+    "rightLeaf": "/images/test/Group-7-min.png",
+    "description": "آنی رز با بهره‌گیری از تیمی مجرب و متخصص، همواره در تلاش است تا بهترین و با کیفیت‌ترین محصولات طبیعی و ارگانیک را با مناسب‌ترین قیمت به مشتریان عزیز در سراسر ایران ارائه دهد. رضایت شما افتخار ماست.",
+    "stats": [
+      {
+        "id": 1,
+        "title": "تیم آنی رز",
+        "prefix": "بیش از",
+        "value": 20,
+        "suffix": "نفر"
+      },
+      {
+        "id": 2,
+        "title": "سفارشات تکمیل شده",
+        "prefix": "بیش از",
+        "value": 5,
+        "suffix": "هزار سفارش"
+      },
+      {
+        "id": 3,
+        "title": "اشتغال زایی",
+        "prefix": "بیش از",
+        "value": 100,
+        "suffix": "فرصت شغلی"
+      },
+      {
+        "id": 4,
+        "title": "تجربه آنی رز",
+        "prefix": "بیش از",
+        "value": 15,
+        "suffix": "سال"
+      }
+    ]
+  }
+}
