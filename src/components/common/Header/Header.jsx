@@ -8,7 +8,7 @@ import MobileHeader from "./MobileHeader";
 
 const MENU = {
   home: { id: 0, title: "خانه", link: "/" },
-  consultation: { id: 1000, title: "مشاوره طب سنتی", link: "/doctor" },
+  consultation: { id: 1000, title: "مشاوره طب سنتی", link: "/doctors" },
   shop: { id: 999, title: "فروشگاه", link: "/shop" },
   about: { id: 0, title: "درباره ما", link: "/about" },
   contact: { id: 1, title: "تماس با ما", link: "/contact" },

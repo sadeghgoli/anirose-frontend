@@ -2,13 +2,13 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { MapPin, Phone, Clock } from "react-feather";
+import { MapPin, Phone, Mail, Clock } from "react-feather";
 import { fetchContactSettings } from "../../../api/services/contact.js";
 
 const STATIC_FOOTER_DATA = {
   topImage: "/images/test/Asset-1-12.png",
-  slogan: { text: "هنر نزد ایرانیان است و بس." },
-  description: "فروشگاه آنی رز ارائه دهنده بهترین محصولات ارگانیک و طبیعی با بالاترین کیفیت",
+  slogan: { text: "آنی رز، جوانی هر روز!" },
+  description: "شرکت کشت و صنعت درخت زندگی با برند آنی رز، تامین‌کننده محصولات ارگانیک، گیاهان دارویی و ادویه‌جات از سال ۱۳۹۸",
   importantLinks: {
     title: "لینک های مهم",
     links: [
@@ -30,14 +30,15 @@ const STATIC_FOOTER_DATA = {
   contact: {
     title: "مسیر های ارتباطی",
     items: [
-      { text: "آدرس: تهران، خیابان انقلاب، ..." },
-      { text: "شماره تماس: ۰۹۱۲۱۲۳۴۵۶۷" },
-      { text: "ساعت کاری: شنبه تا پنجشنبه ۹ تا ۱۸" },
+      { text: "آدرس: خراسان رضوی، سبزوار، شهرک صنعتی، فاز 1" },
+      { text: "شماره تماس: ۰۵۱-۴۴۳۳۳۴۱۶" },
+      { text: "ایمیل: info@aniroseco.ir" },
+      { text: "ساعت کاری: شنبه تا پنجشنبه، ۸ صبح تا ۱۷ عصر" },
     ],
   },
   socials: {
-    instagram: "#",
-    telegram: "#",
+    instagram: "https://instagram.com/aniroz.ir",
+    telegram: "https://telegram.org/sepehr_aniroz",
   },
   trustBadges: {
     title: "نماد های اعتماد",
@@ -81,7 +82,8 @@ const Footer = () => {
                       items: [
                         { text: contact.addresses?.length ? `آدرس: ${contact.addresses[0]}` : prev.contact.items[0].text },
                         { text: contact.phones?.length ? `شماره تماس: ${contact.phones[0]}` : prev.contact.items[1].text },
-                        { text: contact.working_hours ? `ساعت کاری: ${contact.working_hours}` : prev.contact.items[2].text },
+                        { text: contact.emails?.length ? `ایمیل: ${contact.emails[0]}` : prev.contact.items[2].text },
+                        { text: contact.working_hours ? `ساعت کاری: ${contact.working_hours}` : prev.contact.items[3].text },
                       ],
                     },
                     socials: {
@@ -126,7 +128,7 @@ const Footer = () => {
                         <div className="flex items-center justify-center py-0 gap-1">
                             <Image src="/images/test/Group-7-min.png" alt="نقش تزئینی" width={16} height={16} className="scale-x-[-1] max-sm:w-[12px]"  loading="lazy" />
                             <h2 className="text-[#DDDDDD] text-base font-normal m-0 max-sm:text-sm">
-                                {data?.slogan?.text || "هنر نزد ایرانیان است و بس."}
+                                {data?.slogan?.text || "آنی رز، جوانی هر روز!"}
                             </h2>
                             <Image src="/images/test/Group-7-min.png" alt="نقش تزئینی" width={16} height={16} className="max-sm:w-[12px]"  loading="lazy" />
                         </div>
@@ -210,7 +212,7 @@ const Footer = () => {
                                                 <MapPin size={15} color="white" className="max-sm:w-3 max-sm:h-3" />
                                             </span>
                                             <h3 className="text-white text-base font-medium m-0 max-sm:text-sm">
-                                                {data?.contact?.items?.[0]?.text || "آدرس: تهران، خیابان انقلاب، ..."}
+                                                {data?.contact?.items?.[0]?.text || "آدرس: خراسان رضوی، سبزوار، شهرک صنعتی، فاز 1"}
                                             </h3>
                                         </div>
                                         <div className="flex items-center gap-3 text-right max-sm:gap-2">
@@ -218,7 +220,15 @@ const Footer = () => {
                                                 <Phone size={15} color="white" className="max-sm:w-3 max-sm:h-3" />
                                             </span>
                                             <h3 className="text-white text-base font-medium m-0 max-sm:text-sm">
-                                                {data?.contact?.items?.[1]?.text || "شماره تماس: ۰۹۱۲۱۲۳۴۵۶۷"}
+                                                {data?.contact?.items?.[1]?.text || "شماره تماس: ۰۵۱-۴۴۳۳۳۴۱۶"}
+                                            </h3>
+                                        </div>
+                                        <div className="flex items-center gap-3 text-right max-sm:gap-2">
+                                            <span className="bg-[#0c5505] rounded-full p-[0.4em] flex-shrink-0 flex items-center justify-center max-sm:p-[0.3em]">
+                                                <Mail size={15} color="white" className="max-sm:w-3 max-sm:h-3" />
+                                            </span>
+                                            <h3 className="text-white text-base font-medium m-0 max-sm:text-sm">
+                                                {data?.contact?.items?.[2]?.text || "ایمیل: info@aniroseco.ir"}
                                             </h3>
                                         </div>
                                         <div className="flex items-center gap-3 text-right max-sm:gap-2">
@@ -226,7 +236,7 @@ const Footer = () => {
                                                 <Clock size={15} color="white" className="max-sm:w-3 max-sm:h-3" />
                                             </span>
                                             <h3 className="text-white text-base font-medium m-0 max-sm:text-sm">
-                                                {data?.contact?.items?.[2]?.text || "ساعت کاری: شنبه تا پنجشنبه ۹ تا ۱۸"}
+                                                {data?.contact?.items?.[3]?.text || "ساعت کاری: شنبه تا پنجشنبه، ۸ صبح تا ۱۷ عصر"}
                                             </h3>
                                         </div>
                                     </div>

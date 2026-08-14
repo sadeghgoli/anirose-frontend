@@ -378,6 +378,13 @@ const DesktopHeader = ({ data, isLoggedIn }) => {
                   role="button"
                   tabIndex={0}
                   aria-label="سبد خرید"
+                  onClick={() => router.push("/cart")}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      router.push("/cart");
+                    }
+                  }}
                   className="p-2 sm:p-3 relative bg-white rounded-full border-none cursor-pointer shadow-[0px_0px_30px_0px_rgba(95,106,105,0.3)]"
                 >
                   <CartIcon />

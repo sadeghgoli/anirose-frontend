@@ -1,10 +1,8 @@
-import { Suspense } from "react";
 import "./globals.css";
 import ClientLayout from "./ClientLayout";
 import { peyda, pinar } from "./fonts";
 import JsonLd from "../src/components/JsonLd";
-import Header from "../src/components/common/Header";
-import Footer from "../src/components/common/Footer";
+import PageChrome from "../src/components/common/PageChrome/PageChrome.jsx";
 
 export const metadata = {
   metadataBase: new URL('https://aniroz.ir'),
@@ -124,11 +122,7 @@ export default function RootLayout({ children }) {
       </head>
       <body suppressHydrationWarning className={peyda.className}>
         <ClientLayout>
-          <Suspense fallback={null}>
-            <Header />
-          </Suspense>
-          <main>{children}</main>
-          <Footer />
+          <PageChrome>{children}</PageChrome>
         </ClientLayout>
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={webSiteJsonLd} />
