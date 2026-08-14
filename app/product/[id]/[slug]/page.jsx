@@ -2,7 +2,7 @@ import ProductDetail from '../../../../src/views/ProductDetail/ProductDetail.jsx
 import JsonLd from '../../../../src/components/JsonLd'
 import { serverFetch } from '../../../../src/utils/api/serverApi'
 
-const SITE_URL = 'https://aniroz.ir';
+const SITE_URL = 'https://aniroseco.ir';
 const PRICE_VALID_UNTIL = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
 export const revalidate = 40;
@@ -139,7 +139,7 @@ export default async function ProductPage({ params }) {
     name: product ? product.name : 'محصول',
     url: `${SITE_URL}/product/${id}/${slug}`,
     inLanguage: 'fa-IR',
-    isPartOf: { '@id': 'https://aniroz.ir/#website' },
+    isPartOf: { '@id': 'https://aniroseco.ir/#website' },
   };
 
   const breadcrumbJsonLd = {

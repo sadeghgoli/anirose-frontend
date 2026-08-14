@@ -22,9 +22,9 @@ const webPageJsonLd = {
   "@type": "WebPage",
   name: "ورود به آنی رز",
   description: "ورود به حساب کاربری",
-  url: "https://aniroz.ir/login",
+  url: "https://aniroseco.ir/login",
   inLanguage: "fa-IR",
-  isPartOf: { "@id": "https://aniroz.ir/#website" },
+  isPartOf: { "@id": "https://aniroseco.ir/#website" },
 };
 
 export default function LoginPage() {

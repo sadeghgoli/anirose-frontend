@@ -6,7 +6,7 @@ export const metadata = {
   title: "متخصصان | آنی رز",
   description: "مشاوره تخصصی با بهترین متخصصان تغذیه و سلامت - رزرو نوبت آنلاین از متخصصان آنی رز",
   alternates: {
-    canonical: "https://aniroz.ir/doctors",
+    canonical: "https://aniroseco.ir/doctors",
   },
   openGraph: {
     title: "متخصصان | آنی رز",
@@ -20,15 +20,15 @@ const collectionJsonLd = {
   "@type": "CollectionPage",
   name: "متخصصان آنی رز",
   description: "لیست متخصصان و مشاوران تغذیه و سلامت",
-  url: "https://aniroz.ir/doctors",
+  url: "https://aniroseco.ir/doctors",
 };
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroz.ir" },
-    { "@type": "ListItem", position: 2, name: "متخصصان", item: "https://aniroz.ir/doctors" },
+    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroseco.ir" },
+    { "@type": "ListItem", position: 2, name: "متخصصان", item: "https://aniroseco.ir/doctors" },
   ],
 };
 

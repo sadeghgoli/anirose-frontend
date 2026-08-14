@@ -5,7 +5,7 @@ import JsonLd from "../src/components/JsonLd";
 import PageChrome from "../src/components/common/PageChrome/PageChrome.jsx";
 
 export const metadata = {
-  metadataBase: new URL('https://aniroz.ir'),
+  metadataBase: new URL('https://aniroseco.ir'),
   title: {
     default: "آنی رز | AniRoz - فروشگاه محصولات طبیعی و ارگانیک",
     template: "%s",
@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "آنی رز",
     title: "آنی رز | AniRoz - فروشگاه محصولات طبیعی و ارگانیک",
     description: "فروشگاه اینترنتی آنی رز - خرید انواع محصولات طبیعی و ارگانیک با بهترین قیمت",
-    url: "https://aniroz.ir",
+    url: "https://aniroseco.ir",
     images: [{ url: "/images/test/Asset-1-3-1.png", width: 200, height: 200, alt: "آنی رز" }],
     countryName: "Iran",
   },
@@ -36,8 +36,8 @@ export const metadata = {
     googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 },
   },
   alternates: {
-    canonical: "https://aniroz.ir",
-    languages: { "fa-IR": "https://aniroz.ir" },
+    canonical: "https://aniroseco.ir",
+    languages: { "fa-IR": "https://aniroseco.ir" },
   },
   category: "business",
   icons: {
@@ -69,12 +69,12 @@ export const viewport = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Store",
-  "@id": "https://aniroz.ir/#store",
+  "@id": "https://aniroseco.ir/#store",
   name: "آنی رز",
   alternateName: "AniRoz",
-  url: "https://aniroz.ir",
-  logo: "https://aniroz.ir/images/test/Asset-1-3-1.png",
-  image: "https://aniroz.ir/images/test/Asset-1-3-1.png",
+  url: "https://aniroseco.ir",
+  logo: "https://aniroseco.ir/images/test/Asset-1-3-1.png",
+  image: "https://aniroseco.ir/images/test/Asset-1-3-1.png",
   description: "فروشگاه اینترنتی آنی رز - خرید انواع محصولات طبیعی و ارگانیک",
   brand: { "@type": "Brand", name: "آنی رز" },
   address: { "@type": "PostalAddress", streetAddress: "تهران", addressLocality: "تهران", addressCountry: "IR" },
@@ -87,17 +87,17 @@ const organizationJsonLd = {
 const webSiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://aniroz.ir/#website",
+  "@id": "https://aniroseco.ir/#website",
   name: "آنی رز",
   alternateName: "AniRoz",
-  url: "https://aniroz.ir",
+  url: "https://aniroseco.ir",
   inLanguage: "fa-IR",
-  publisher: { "@id": "https://aniroz.ir/#store" },
+  publisher: { "@id": "https://aniroseco.ir/#store" },
   potentialAction: {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: "https://aniroz.ir/shop?q={search_term_string}",
+      urlTemplate: "https://aniroseco.ir/shop?q={search_term_string}",
     },
     "query-input": "required name=search_term_string",
   },
@@ -107,7 +107,7 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroz.ir" },
+    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroseco.ir" },
   ],
 };
 

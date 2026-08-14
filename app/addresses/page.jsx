@@ -22,9 +22,9 @@ const webPageJsonLd = {
   "@type": "WebPage",
   name: "آدرس‌های من",
   description: "مدیریت آدرس‌های ارسال",
-  url: "https://aniroz.ir/addresses",
+  url: "https://aniroseco.ir/addresses",
   inLanguage: "fa-IR",
-  isPartOf: { "@id": "https://aniroz.ir/#website" },
+  isPartOf: { "@id": "https://aniroseco.ir/#website" },
 };
 
 export default function AddressesPage() {

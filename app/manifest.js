@@ -3,7 +3,7 @@ export default function manifest() {
     name: "آنی رز | فروشگاه محصولات طبیعی و ارگانیک",
     short_name: "آنی رز",
     description: "فروشگاه اینترنتی آنی رز - خرید محصولات طبیعی، ارگانیک و سلامت‌محور با بهترین قیمت و کیفیت در ایران",
-    id: "https://aniroz.ir/",
+    id: "https://aniroseco.ir/",
     start_url: "/",
     scope: "/",
     display: "standalone",

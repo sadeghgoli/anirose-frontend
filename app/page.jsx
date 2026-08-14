@@ -6,12 +6,12 @@ export const metadata = {
   title: "آنی رز | AniRoz - فروشگاه محصولات طبیعی و ارگانیک",
   description: "فروشگاه اینترنتی آنی رز - مرجع تخصصی خرید محصولات طبیعی، ارگانیک و سلامت محور با بهترین قیمت و کیفیت در ایران",
   alternates: {
-    canonical: "https://aniroz.ir",
+    canonical: "https://aniroseco.ir",
   },
   openGraph: {
     title: "آنی رز | AniRoz - فروشگاه محصولات طبیعی و ارگانیک",
     description: "فروشگاه اینترنتی آنی رز - مرجع تخصصی خرید محصولات طبیعی، ارگانیک و سلامت محور",
-    url: "https://aniroz.ir",
+    url: "https://aniroseco.ir",
     images: [defaultOgImage],
   },
   twitter: {
@@ -24,13 +24,13 @@ export const metadata = {
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://aniroz.ir/#webpage",
+  "@id": "https://aniroseco.ir/#webpage",
   name: "آنی رز | فروشگاه محصولات طبیعی و ارگانیک",
   description: "فروشگاه اینترنتی آنی رز - مرجع تخصصی خرید محصولات طبیعی، ارگانیک و سلامت محور در ایران",
-  url: "https://aniroz.ir",
+  url: "https://aniroseco.ir",
   inLanguage: "fa-IR",
-  isPartOf: { "@id": "https://aniroz.ir/#website" },
-  about: { "@id": "https://aniroz.ir/#store" },
+  isPartOf: { "@id": "https://aniroseco.ir/#website" },
+  about: { "@id": "https://aniroseco.ir/#store" },
 };
 
 export default function HomePage() {

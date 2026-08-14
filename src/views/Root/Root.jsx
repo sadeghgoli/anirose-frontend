@@ -18,6 +18,7 @@ import {
 const Root = () => {
   return (
     <>
+      <h1 className="sr-only">فروشگاه اینترنتی آنی رز | محصولات طبیعی و ارگانیک</h1>
       <HeroSlider />
       <LazyCategories />
       <SaleSection />

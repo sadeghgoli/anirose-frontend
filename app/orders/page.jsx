@@ -22,9 +22,9 @@ const webPageJsonLd = {
   "@type": "WebPage",
   name: "سفارشات آنی رز",
   description: "مشاهده و پیگیری سفارشات",
-  url: "https://aniroz.ir/orders",
+  url: "https://aniroseco.ir/orders",
   inLanguage: "fa-IR",
-  isPartOf: { "@id": "https://aniroz.ir/#website" },
+  isPartOf: { "@id": "https://aniroseco.ir/#website" },
 };
 
 export default function OrdersPage() {

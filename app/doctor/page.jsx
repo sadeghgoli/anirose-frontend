@@ -6,7 +6,7 @@ export const metadata = {
   title: "مشاوره تخصصی | آنی رز",
   description: "دریافت مشاوره تخصصی آنلاین از متخصصان تغذیه و سلامت آنی رز - رزرو نوبت و مشاوره",
   alternates: {
-    canonical: "https://aniroz.ir/doctor",
+    canonical: "https://aniroseco.ir/doctor",
   },
   openGraph: {
     title: "مشاوره تخصصی | آنی رز",
@@ -20,7 +20,7 @@ const professionalServiceJsonLd = {
   "@type": "ProfessionalService",
   name: "مشاوره تخصصی آنی رز",
   description: "دریافت مشاوره تخصصی آنلاین از متخصصان تغذیه و سلامت",
-  url: "https://aniroz.ir/doctor",
+  url: "https://aniroseco.ir/doctor",
   areaServed: "IR",
   availableLanguage: "fa",
 };
@@ -29,8 +29,8 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroz.ir" },
-    { "@type": "ListItem", position: 2, name: "مشاوره تخصصی", item: "https://aniroz.ir/doctor" },
+    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroseco.ir" },
+    { "@type": "ListItem", position: 2, name: "مشاوره تخصصی", item: "https://aniroseco.ir/doctor" },
   ],
 };
 

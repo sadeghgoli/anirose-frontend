@@ -1,6 +1,6 @@
 import { serverFetch } from "../src/utils/api/serverApi.js";
 
-const baseUrl = "https://aniroz.ir";
+const baseUrl = "https://aniroseco.ir";
 
 export const revalidate = 3600;
 

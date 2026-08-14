@@ -22,9 +22,9 @@ const webPageJsonLd = {
   "@type": "WebPage",
   name: "تسویه حساب آنی رز",
   description: "تسویه حساب و نهایی سازی سفارش",
-  url: "https://aniroz.ir/checkout",
+  url: "https://aniroseco.ir/checkout",
   inLanguage: "fa-IR",
-  isPartOf: { "@id": "https://aniroz.ir/#website" },
+  isPartOf: { "@id": "https://aniroseco.ir/#website" },
 };
 
 export default function CheckoutPage() {

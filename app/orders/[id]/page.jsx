@@ -17,7 +17,7 @@ const webPageJsonLd = {
   name: "جزئیات سفارش",
   description: "جزئیات سفارش آنی رز",
   inLanguage: "fa-IR",
-  isPartOf: { "@id": "https://aniroz.ir/#website" },
+  isPartOf: { "@id": "https://aniroseco.ir/#website" },
 };
 
 export default async function OrderDetailPage({ params }) {

@@ -22,12 +22,12 @@ export const metadata = {
   title: "وبلاگ | آنی رز",
   description: "مقالات و مطالب آموزشی آنی رز درباره تغذیه سالم، گیاهان دارویی و محصولات ارگانیک",
   alternates: {
-    canonical: "https://aniroz.ir/blog",
+    canonical: "https://aniroseco.ir/blog",
   },
   openGraph: {
     title: "وبلاگ | آنی رز",
     description: "مقالات آموزشی درباره تغذیه سالم و محصولات ارگانیک",
-    url: "https://aniroz.ir/blog",
+    url: "https://aniroseco.ir/blog",
     images: [defaultOgImage],
   },
   twitter: {
@@ -41,8 +41,8 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroz.ir" },
-    { "@type": "ListItem", position: 2, name: "وبلاگ", item: "https://aniroz.ir/blog" },
+    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroseco.ir" },
+    { "@type": "ListItem", position: 2, name: "وبلاگ", item: "https://aniroseco.ir/blog" },
   ],
 };
 
@@ -51,9 +51,9 @@ const webPageJsonLd = {
   "@type": "CollectionPage",
   name: "وبلاگ آنی رز",
   description: "مقالات آموزشی درباره تغذیه سالم و محصولات ارگانیک",
-  url: "https://aniroz.ir/blog",
+  url: "https://aniroseco.ir/blog",
   inLanguage: "fa-IR",
-  isPartOf: { "@id": "https://aniroz.ir/#website" },
+  isPartOf: { "@id": "https://aniroseco.ir/#website" },
 };
 
 export default async function BlogPage() {
@@ -62,17 +62,17 @@ export default async function BlogPage() {
   const blogJsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "@id": "https://aniroz.ir/blog#blog",
+    "@id": "https://aniroseco.ir/blog#blog",
     name: "وبلاگ آنی رز",
     description: "مقالات و مطالب آموزشی آنی رز درباره تغذیه سالم، گیاهان دارویی و محصولات ارگانیک",
-    url: "https://aniroz.ir/blog",
+    url: "https://aniroseco.ir/blog",
     inLanguage: "fa-IR",
-    publisher: { "@id": "https://aniroz.ir/#store" },
-    isPartOf: { "@id": "https://aniroz.ir/#website" },
+    publisher: { "@id": "https://aniroseco.ir/#store" },
+    isPartOf: { "@id": "https://aniroseco.ir/#website" },
     blogPost: posts.map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
-      url: `https://aniroz.ir/blog/${p.id}/${p.slug}`,
+      url: `https://aniroseco.ir/blog/${p.id}/${p.slug}`,
       image: p.image ? p.image : undefined,
     })),
   };
@@ -86,7 +86,7 @@ export default async function BlogPage() {
       "@type": "ListItem",
       position: i + 1,
       name: p.title,
-      url: `https://aniroz.ir/blog/${p.id}/${p.slug}`,
+      url: `https://aniroseco.ir/blog/${p.id}/${p.slug}`,
     })),
   };
 

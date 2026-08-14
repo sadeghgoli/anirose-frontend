@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import JsonLd from "../../../../src/components/JsonLd";
 import { serverFetch } from "../../../../src/utils/api/serverApi.js";
 
-const SITE_URL = "https://aniroz.ir";
+const SITE_URL = "https://aniroseco.ir";
 
 export const revalidate = 40;
 

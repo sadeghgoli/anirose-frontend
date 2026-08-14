@@ -23,11 +23,11 @@ export default async function BlogList() {
     "@type": "Blog",
     name: "وبلاگ آنی رز",
     description: "مقالات و مطالب آموزشی آنی رز",
-    url: "https://aniroz.ir/blog",
+    url: "https://aniroseco.ir/blog",
     blogPost: posts.map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
-      url: `https://aniroz.ir/blog/${p.id}/${p.slug}`,
+      url: `https://aniroseco.ir/blog/${p.id}/${p.slug}`,
       image: p.image ? p.image : undefined,
     })),
   };
@@ -41,7 +41,7 @@ export default async function BlogList() {
       "@type": "ListItem",
       position: i + 1,
       name: p.title,
-      url: `https://aniroz.ir/blog/${p.id}/${p.slug}`,
+      url: `https://aniroseco.ir/blog/${p.id}/${p.slug}`,
     })),
   };
 

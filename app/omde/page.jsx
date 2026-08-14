@@ -6,7 +6,7 @@ export const metadata = {
   title: "سفارش عمده | آنی رز",
   description: "سفارش عمده محصولات طبیعی و ارگانیک آنی رز - خرید با تخفیف ویژه برای فروشندگان و کسب و کارها",
   alternates: {
-    canonical: "https://aniroz.ir/omde",
+    canonical: "https://aniroseco.ir/omde",
   },
   openGraph: {
     title: "سفارش عمده | آنی رز",
@@ -20,7 +20,7 @@ const businessJsonLd = {
   "@type": "Service",
   name: "سفارش عمده آنی رز",
   description: "خرید عمده محصولات طبیعی و ارگانیک با تخفیف ویژه برای فروشندگان و کسب و کارها",
-  provider: { "@type": "Organization", name: "آنی رز", url: "https://aniroz.ir" },
+  provider: { "@type": "Organization", name: "آنی رز", url: "https://aniroseco.ir" },
   areaServed: "IR",
   serviceType: "Bulk Order",
   category: "Bulk Order",
@@ -30,8 +30,8 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroz.ir" },
-    { "@type": "ListItem", position: 2, name: "سفارش عمده", item: "https://aniroz.ir/omde" },
+    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroseco.ir" },
+    { "@type": "ListItem", position: 2, name: "سفارش عمده", item: "https://aniroseco.ir/omde" },
   ],
 };
 

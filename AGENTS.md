@@ -4,7 +4,7 @@ This file is the exhaustive, verified reference for the AniRoz e-commerce projec
 
 **Project:** Next.js 16.2.12 (App Router + Turbopack), React 19, RTL Persian e-commerce store (فروشگاه اینترنتی آنی رز / AniRoz). Tailwind CSS 4, Zustand, React Query, Swiper 12, axios, framer-motion, react-hook-form, react-toastify, jose, js-cookie, react-otp-input.
 
-**Canonical site:** `https://aniroz.ir` (defined once in `src/utils/seo.js` as `SITE_URL`). Backend: `https://aniroseco.ir/backend/api/v1/`.
+**Canonical site:** `https://aniroseco.ir` (defined in `src/utils/seo.js` as `SITE_URL`; the codebase was migrated from the old `https://aniroz.ir` domain — `aniroz.ir` hosts a different site, the producer company, so it must NOT be used for canonicals/sitemap). Backend: `https://aniroseco.ir/backend/api/v1/`.
 
 **No test suite exists. No CI pipeline exists.** `data/` dir is empty and unused. `public/jsons/` holds static JSON used by several home sections.
 

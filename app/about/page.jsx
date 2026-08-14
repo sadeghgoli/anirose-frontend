@@ -6,7 +6,7 @@ export const metadata = {
   title: "درباره ما | آنی رز",
   description: "آشنایی با فروشگاه اینترنتی آنی رز - مرجع تخصصی محصولات طبیعی و ارگانیک با هدف سلامتی و کیفیت زندگی",
   alternates: {
-    canonical: "https://aniroz.ir/about",
+    canonical: "https://aniroseco.ir/about",
   },
   openGraph: {
     title: "درباره ما | آنی رز",
@@ -20,18 +20,18 @@ const aboutPageJsonLd = {
   "@type": "AboutPage",
   name: "درباره آنی رز",
   description: "آشنایی با فروشگاه اینترنتی آنی رز",
-  url: "https://aniroz.ir/about",
+  url: "https://aniroseco.ir/about",
   inLanguage: "fa-IR",
-  isPartOf: { "@id": "https://aniroz.ir/#website" },
-  about: { "@type": "Organization", name: "آنی رز", url: "https://aniroz.ir" },
+  isPartOf: { "@id": "https://aniroseco.ir/#website" },
+  about: { "@type": "Organization", name: "آنی رز", url: "https://aniroseco.ir" },
 };
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroz.ir" },
-    { "@type": "ListItem", position: 2, name: "درباره ما", item: "https://aniroz.ir/about" },
+    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroseco.ir" },
+    { "@type": "ListItem", position: 2, name: "درباره ما", item: "https://aniroseco.ir/about" },
   ],
 };
 

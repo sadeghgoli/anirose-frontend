@@ -1,3 +1,29 @@
+# AI search crawlers — allow (they must be able to read the site to cite it)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Training-only crawler (Common Crawl) — blocking it does not affect AI search citation
+User-agent: CCBot
+Disallow: /
+
 User-agent: *
 Allow: /
 Disallow: /profile
@@ -10,4 +36,4 @@ Disallow: /cart
 Disallow: /login
 Disallow: /api/
 
-Sitemap: https://aniroz.ir/sitemap.xml
+Sitemap: https://aniroseco.ir/sitemap.xml

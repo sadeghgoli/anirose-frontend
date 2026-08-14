@@ -21,9 +21,9 @@ const webPageJsonLd = {
   "@type": "WebPage",
   name: "سبد خرید آنی رز",
   description: "سبد خرید آنی رز - مشاهده و مدیریت محصولات انتخاب شده برای خرید",
-  url: "https://aniroz.ir/cart",
+  url: "https://aniroseco.ir/cart",
   inLanguage: "fa-IR",
-  isPartOf: { "@id": "https://aniroz.ir/#website" },
+  isPartOf: { "@id": "https://aniroseco.ir/#website" },
 };
 
 export default function CartPage() {

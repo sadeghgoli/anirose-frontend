@@ -22,9 +22,9 @@ const webPageJsonLd = {
   "@type": "WebPage",
   name: "پروفایل کاربری آنی رز",
   description: "مدیریت حساب کاربری",
-  url: "https://aniroz.ir/profile",
+  url: "https://aniroseco.ir/profile",
   inLanguage: "fa-IR",
-  isPartOf: { "@id": "https://aniroz.ir/#website" },
+  isPartOf: { "@id": "https://aniroseco.ir/#website" },
 };
 
 export default function ProfilePage() {

@@ -5,7 +5,7 @@ export const metadata = {
   title: "قوانین و مقررات | آنی رز",
   description: "قوانین و مقررات فروشگاه آنی رز - شرایط ثبت سفارش، پرداخت، ارسال و بازگشت کالا",
   alternates: {
-    canonical: "https://aniroz.ir/rules",
+    canonical: "https://aniroseco.ir/rules",
   },
   openGraph: {
     title: "قوانین و مقررات | آنی رز",
@@ -18,17 +18,17 @@ const rulesJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "قوانین و مقررات آنی رز",
-  url: "https://aniroz.ir/rules",
+  url: "https://aniroseco.ir/rules",
   inLanguage: "fa-IR",
-  isPartOf: { "@id": "https://aniroz.ir/#website" },
+  isPartOf: { "@id": "https://aniroseco.ir/#website" },
 };
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroz.ir" },
-    { "@type": "ListItem", position: 2, name: "قوانین و مقررات", item: "https://aniroz.ir/rules" },
+    { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroseco.ir" },
+    { "@type": "ListItem", position: 2, name: "قوانین و مقررات", item: "https://aniroseco.ir/rules" },
   ],
 };
 

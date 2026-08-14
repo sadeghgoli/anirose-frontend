@@ -8,12 +8,12 @@ export const metadata = {
   title: "فروشگاه | آنی رز",
   description: "خرید آنلاین انواع محصولات طبیعی و ارگانیک از فروشگاه آنی رز - بهترین قیمت و کیفیت در سراسر ایران",
   alternates: {
-    canonical: "https://aniroz.ir/shop",
+    canonical: "https://aniroseco.ir/shop",
   },
   openGraph: {
     title: "فروشگاه | آنی رز",
     description: "خرید آنلاین انواع محصولات طبیعی و ارگانیک از فروشگاه آنی رز",
-    url: "https://aniroz.ir/shop",
+    url: "https://aniroseco.ir/shop",
     images: [defaultOgImage],
   },
   twitter: {
@@ -43,8 +43,8 @@ export default async function ShopPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroz.ir" },
-      { "@type": "ListItem", position: 2, name: "فروشگاه", item: "https://aniroz.ir/shop" },
+      { "@type": "ListItem", position: 1, name: "خانه", item: "https://aniroseco.ir" },
+      { "@type": "ListItem", position: 2, name: "فروشگاه", item: "https://aniroseco.ir/shop" },
     ],
   };
 
@@ -53,9 +53,9 @@ export default async function ShopPage() {
     "@type": "CollectionPage",
     name: "فروشگاه آنی رز",
     description: "خرید آنلاین انواع محصولات طبیعی و ارگانیک",
-    url: "https://aniroz.ir/shop",
+    url: "https://aniroseco.ir/shop",
     inLanguage: "fa-IR",
-    isPartOf: { "@id": "https://aniroz.ir/#website" },
+    isPartOf: { "@id": "https://aniroseco.ir/#website" },
   };
 
   const itemListJsonLd = products.length
@@ -68,7 +68,7 @@ export default async function ShopPage() {
           "@type": "ListItem",
           position: i + 1,
           name: p.title,
-          url: `https://aniroz.ir/product/${p.id}/${p.slug || "product"}`,
+          url: `https://aniroseco.ir/product/${p.id}/${p.slug || "product"}`,
           image: p.primary_image || undefined,
           offers: {
             "@type": "Offer",
