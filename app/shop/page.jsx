@@ -5,21 +5,21 @@ import { serverFetch } from "../../src/utils/api/serverApi";
 import { defaultOgImage } from "../../src/utils/seo";
 
 export const metadata = {
-  title: "فروشگاه | آنی روز",
-  description: "خرید آنلاین انواع محصولات طبیعی و ارگانیک از فروشگاه آنی روز - بهترین قیمت و کیفیت در سراسر ایران",
+  title: "فروشگاه | آنی رز",
+  description: "خرید آنلاین انواع محصولات طبیعی و ارگانیک از فروشگاه آنی رز - بهترین قیمت و کیفیت در سراسر ایران",
   alternates: {
     canonical: "https://aniroz.ir/shop",
   },
   openGraph: {
-    title: "فروشگاه | آنی روز",
-    description: "خرید آنلاین انواع محصولات طبیعی و ارگانیک از فروشگاه آنی روز",
+    title: "فروشگاه | آنی رز",
+    description: "خرید آنلاین انواع محصولات طبیعی و ارگانیک از فروشگاه آنی رز",
     url: "https://aniroz.ir/shop",
     images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "فروشگاه | آنی روز",
-    description: "خرید آنلاین انواع محصولات طبیعی و ارگانیک از فروشگاه آنی روز",
+    title: "فروشگاه | آنی رز",
+    description: "خرید آنلاین انواع محصولات طبیعی و ارگانیک از فروشگاه آنی رز",
   },
 };
 
@@ -51,7 +51,7 @@ export default async function ShopPage() {
   const collectionJsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "فروشگاه آنی روز",
+    name: "فروشگاه آنی رز",
     description: "خرید آنلاین انواع محصولات طبیعی و ارگانیک",
     url: "https://aniroz.ir/shop",
     inLanguage: "fa-IR",
@@ -62,7 +62,7 @@ export default async function ShopPage() {
     ? {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        name: "محصولات آنی روز",
+        name: "محصولات آنی رز",
         numberOfItems: products.length,
         itemListElement: products.map((p, i) => ({
           "@type": "ListItem",

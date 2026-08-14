@@ -21,8 +21,8 @@ export default async function BlogList() {
   const blogJsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    name: "وبلاگ آنی روز",
-    description: "مقالات و مطالب آموزشی آنی روز",
+    name: "وبلاگ آنی رز",
+    description: "مقالات و مطالب آموزشی آنی رز",
     url: "https://aniroz.ir/blog",
     blogPost: posts.map((p) => ({
       "@type": "BlogPosting",
@@ -35,7 +35,7 @@ export default async function BlogList() {
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "مقالات وبلاگ آنی روز",
+    name: "مقالات وبلاگ آنی رز",
     numberOfItems: posts.length,
     itemListElement: posts.map((p, i) => ({
       "@type": "ListItem",
@@ -51,7 +51,7 @@ export default async function BlogList() {
       <JsonLd data={itemListJsonLd} />
       <div className="min-h-[60vh] bg-[#F8F9FB] py-10">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <h1 className="text-2xl sm:text-3xl font-bold text-[#0c5505] mb-8 text-center">وبلاگ آنی روز</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#0c5505] mb-8 text-center">وبلاگ آنی رز</h1>
           {posts.length === 0 ? (
             <div className="text-center py-16">
               <p className="text-lg font-semibold text-gray-700 mb-2">مجله‌ای وجود ندارد</p>

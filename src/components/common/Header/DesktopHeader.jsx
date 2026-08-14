@@ -22,7 +22,8 @@ const CartIcon = () => (
 );
 
 const OverflowNav = ({ items = [], isActiveLink, className = "", justify = "end" }) => {
-  const outerRef = useRef(null);
+  const containerRef = useRef(null);
+  const innerRef = useRef(null);
   const probeRefs = useRef([]);
   const dotsRef = useRef(null);
   const hoverTimeout = useRef(null);
@@ -41,10 +42,10 @@ const OverflowNav = ({ items = [], isActiveLink, className = "", justify = "end"
   }, [items]);
 
   const calculate = useCallback(() => {
-    const outer = outerRef.current;
-    if (!outer || !items.length) return;
+    const container = containerRef.current;
+    if (!container || !items.length) return;
 
-    const containerWidth = outer.clientWidth;
+    const containerWidth = container.clientWidth;
     if (!containerWidth) return;
 
     const widths = probeRefs.current.map((el) => el?.getBoundingClientRect().width || 0);
@@ -80,11 +81,11 @@ const OverflowNav = ({ items = [], isActiveLink, className = "", justify = "end"
     const run = () => calculate();
     requestAnimationFrame(run);
 
-    const outer = outerRef.current;
-    if (!outer) return undefined;
+    const container = containerRef.current;
+    if (!container) return undefined;
 
     const observer = new ResizeObserver(run);
-    observer.observe(outer);
+    observer.observe(container);
 
     return () => observer.disconnect();
   }, [calculate]);
@@ -101,9 +102,9 @@ const OverflowNav = ({ items = [], isActiveLink, className = "", justify = "end"
   }, []);
 
   return (
-    <div className={`relative flex items-center w-full overflow-visible ${className}`}>
+    <div ref={containerRef} className={`relative flex items-center w-full overflow-visible ${className}`}>
       <div
-        ref={outerRef}
+        ref={innerRef}
         className={`flex-1 min-w-0 flex items-center flex-nowrap overflow-hidden ${justifyClass}`}
       >
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none opacity-0 whitespace-nowrap overflow-hidden">
@@ -290,7 +291,7 @@ const DesktopHeader = ({ data, isLoggedIn }) => {
       <div className="relative max-w-[1400px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         <div className="flex items-stretch">
           <div className="flex flex-col justify-end flex-1 min-w-0 pt-6">
-            <div className="flex items-center justify-start gap-1 pr-4 sm:pr-8 md:pr-12 lg:pr-16">
+            <div className="flex items-center justify-start gap-1 ">
               <Image
                 width={16}
                 height={16}
@@ -300,7 +301,7 @@ const DesktopHeader = ({ data, isLoggedIn }) => {
                 loading="lazy"
               />
               <h2 className="text-[#6f6f6f] m-0 leading-none text-sm sm:text-base font-medium whitespace-nowrap flex-shrink-0 px-[6px]">
-                {data?.topBar?.text || "آنی رز، سلامتی هر روز!"}
+                {data?.topBar?.text || "آنی رز، جوانی هر روز!"}
               </h2>
               <Image
                 width={16}
@@ -354,7 +355,7 @@ const DesktopHeader = ({ data, isLoggedIn }) => {
                   onChange={(e) => setSearchValue(e.target.value)}
                   placeholder="جستجو نمایید"
                   aria-label="جستجو"
-                  className="w-full rounded-[14px] outline-none px-[10px] sm:px-[14px] py-[16px] sm:py-[20px] border-0 text-xs sm:text-[13px] font-medium text-[#7A7A7A] bg-white shadow-[0px_3px_0px_0px_rgba(156,168,167,0.3)]"
+                  className="w-full rounded-[14px] outline-none px-[10px] sm:px-[14px] py-[12px] sm:py-[14px] border-0 text-xs sm:text-[13px] font-medium text-[#7A7A7A] bg-white shadow-[0px_3px_0px_0px_rgba(156,168,167,0.3)]"
                 />
                 {searchValue && (
                   <button

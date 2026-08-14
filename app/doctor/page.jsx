@@ -3,13 +3,13 @@ import JsonLd from '../../src/components/JsonLd'
 import { defaultOgImage } from '../../src/utils/seo'
 
 export const metadata = {
-  title: "مشاوره تخصصی | آنی روز",
-  description: "دریافت مشاوره تخصصی آنلاین از متخصصان تغذیه و سلامت آنی روز - رزرو نوبت و مشاوره",
+  title: "مشاوره تخصصی | آنی رز",
+  description: "دریافت مشاوره تخصصی آنلاین از متخصصان تغذیه و سلامت آنی رز - رزرو نوبت و مشاوره",
   alternates: {
     canonical: "https://aniroz.ir/doctor",
   },
   openGraph: {
-    title: "مشاوره تخصصی | آنی روز",
+    title: "مشاوره تخصصی | آنی رز",
     description: "دریافت مشاوره تخصصی آنلاین از متخصصان تغذیه و سلامت",
     images: [defaultOgImage],
   },
@@ -18,7 +18,7 @@ export const metadata = {
 const professionalServiceJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "مشاوره تخصصی آنی روز",
+  name: "مشاوره تخصصی آنی رز",
   description: "دریافت مشاوره تخصصی آنلاین از متخصصان تغذیه و سلامت",
   url: "https://aniroz.ir/doctor",
   areaServed: "IR",

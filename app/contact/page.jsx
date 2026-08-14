@@ -3,14 +3,14 @@ import JsonLd from "../../src/components/JsonLd";
 import { defaultOgImage } from "../../src/utils/seo";
 
 export const metadata = {
-  title: "تماس با ما | آنی روز",
-  description: "راه‌های ارتباط با فروشگاه آنی روز - تلفن، ایمیل و آدرس برای پشتیبانی و مشاوره خرید",
+  title: "تماس با ما | آنی رز",
+  description: "راه‌های ارتباط با فروشگاه آنی رز - تلفن، ایمیل و آدرس برای پشتیبانی و مشاوره خرید",
   alternates: {
     canonical: "https://aniroz.ir/contact",
   },
   openGraph: {
-    title: "تماس با ما | آنی روز",
-    description: "راه‌های ارتباط با فروشگاه آنی روز",
+    title: "تماس با ما | آنی رز",
+    description: "راه‌های ارتباط با فروشگاه آنی رز",
     images: [defaultOgImage],
   },
 };
@@ -18,8 +18,8 @@ export const metadata = {
 const contactPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  name: "تماس با آنی روز",
-  description: "راه‌های ارتباط با فروشگاه آنی روز",
+  name: "تماس با آنی رز",
+  description: "راه‌های ارتباط با فروشگاه آنی رز",
   url: "https://aniroz.ir/contact",
   inLanguage: "fa-IR",
   isPartOf: { "@id": "https://aniroz.ir/#website" },

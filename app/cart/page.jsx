@@ -3,15 +3,15 @@ import JsonLd from '../../src/components/JsonLd'
 import { defaultOgImage } from '../../src/utils/seo'
 
 export const metadata = {
-  title: "سبد خرید | آنی روز",
-  description: "سبد خرید آنی روز - مشاهده و مدیریت محصولات انتخاب شده برای خرید",
+  title: "سبد خرید | آنی رز",
+  description: "سبد خرید آنی رز - مشاهده و مدیریت محصولات انتخاب شده برای خرید",
   robots: {
     index: false,
     follow: false,
   },
   openGraph: {
-    title: "سبد خرید | آنی روز",
-    description: "سبد خرید آنی روز - مشاهده و مدیریت محصولات انتخاب شده",
+    title: "سبد خرید | آنی رز",
+    description: "سبد خرید آنی رز - مشاهده و مدیریت محصولات انتخاب شده",
     images: [defaultOgImage],
   },
 };
@@ -19,8 +19,8 @@ export const metadata = {
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "سبد خرید آنی روز",
-  description: "سبد خرید آنی روز - مشاهده و مدیریت محصولات انتخاب شده برای خرید",
+  name: "سبد خرید آنی رز",
+  description: "سبد خرید آنی رز - مشاهده و مدیریت محصولات انتخاب شده برای خرید",
   url: "https://aniroz.ir/cart",
   inLanguage: "fa-IR",
   isPartOf: { "@id": "https://aniroz.ir/#website" },

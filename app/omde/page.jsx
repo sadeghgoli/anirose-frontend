@@ -3,14 +3,14 @@ import JsonLd from '../../src/components/JsonLd'
 import { defaultOgImage } from '../../src/utils/seo'
 
 export const metadata = {
-  title: "سفارش عمده | آنی روز",
-  description: "سفارش عمده محصولات طبیعی و ارگانیک آنی روز - خرید با تخفیف ویژه برای فروشندگان و کسب و کارها",
+  title: "سفارش عمده | آنی رز",
+  description: "سفارش عمده محصولات طبیعی و ارگانیک آنی رز - خرید با تخفیف ویژه برای فروشندگان و کسب و کارها",
   alternates: {
     canonical: "https://aniroz.ir/omde",
   },
   openGraph: {
-    title: "سفارش عمده | آنی روز",
-    description: "سفارش عمده محصولات طبیعی و ارگانیک آنی روز",
+    title: "سفارش عمده | آنی رز",
+    description: "سفارش عمده محصولات طبیعی و ارگانیک آنی رز",
     images: [defaultOgImage],
   },
 };
@@ -18,9 +18,9 @@ export const metadata = {
 const businessJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "سفارش عمده آنی روز",
+  name: "سفارش عمده آنی رز",
   description: "خرید عمده محصولات طبیعی و ارگانیک با تخفیف ویژه برای فروشندگان و کسب و کارها",
-  provider: { "@type": "Organization", name: "آنی روز", url: "https://aniroz.ir" },
+  provider: { "@type": "Organization", name: "آنی رز", url: "https://aniroz.ir" },
   areaServed: "IR",
   serviceType: "Bulk Order",
   category: "Bulk Order",

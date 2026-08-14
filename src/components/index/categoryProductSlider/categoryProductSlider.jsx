@@ -150,9 +150,8 @@ const ProductCard = memo(({ product, onAddToCart, isLoading }) => {
 });
 ProductCard.displayName = 'ProductCard';
 
-// Main Component
-const CategoryProductSlider = ({ contrary = false }) => {
-  const [category, setCategory] = useState(null);
+// Single category slider
+const CategorySlider = memo(({ category, index }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadingProductId, setLoadingProductId] = useState(null);
@@ -160,19 +159,16 @@ const CategoryProductSlider = ({ contrary = false }) => {
   const containerRef = useRef(null);
   const swiperRef = useRef(null);
 
-  // Load data
+  const prevClass = `cat-prev-${category.id}`;
+  const nextClass = `cat-next-${category.id}`;
+  const sliderClass = `cat-slider-${category.id}`;
+
   useEffect(() => {
-    const loadData = async () => {
+    const loadProducts = async () => {
       try {
-        const categoriesData = await fetchCategoriesData();
-        if (categoriesData?.categories?.length) {
-          const firstCategory = categoriesData.categories[0];
-          setCategory(firstCategory);
-          
-          const productsData = await fetchCategoryProducts(firstCategory.id);
-          if (productsData?.products) {
-            setProducts(productsData.products);
-          }
+        const productsData = await fetchCategoryProducts(category.id);
+        if (productsData?.products) {
+          setProducts(productsData.products);
         }
       } catch (error) {
         console.warn('خطا در دریافت محصولات دسته‌بندی:', error);
@@ -181,10 +177,9 @@ const CategoryProductSlider = ({ contrary = false }) => {
       }
     };
 
-    loadData();
-  }, []);
+    loadProducts();
+  }, [category.id]);
 
-  // Handle add to cart with useTransition for better UX
   const handleAddToCart = useCallback(async (productId) => {
     if (loadingProductId) return;
 
@@ -194,10 +189,8 @@ const CategoryProductSlider = ({ contrary = false }) => {
 
     try {
       await addToCart(productId);
-      // Optional: Show success toast/notification
     } catch (error) {
       console.error('Error adding to cart:', error);
-      // Optional: Show error toast/notification
     } finally {
       startTransition(() => {
         setLoadingProductId(null);
@@ -205,7 +198,6 @@ const CategoryProductSlider = ({ contrary = false }) => {
     }
   }, [loadingProductId]);
 
-  // Memoized background styles
   const backgroundStyles = {
     right: {
       backgroundImage: `url(${IMAGES.backgroundRight})`,
@@ -222,14 +214,13 @@ const CategoryProductSlider = ({ contrary = false }) => {
   };
 
   if (loading) return <CategoryProductSliderSkeleton />;
-  if (!category || !products.length) return null;
+  if (!products.length) return null;
 
   return (
-    <section 
+    <section
       className="relative py-6 sm:py-10 overflow-x-clip max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12"
-      aria-label="محصولات دسته‌بندی"
+      aria-label={`محصولات دسته‌بندی ${category.name}`}
     >
-      {/* Background decorations */}
       <div
         className="absolute top-0 right-0 w-[90px] h-full z-0 pointer-events-none hidden sm:block"
         style={backgroundStyles.right}
@@ -242,12 +233,7 @@ const CategoryProductSlider = ({ contrary = false }) => {
       />
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
-        <div
-          className={`flex flex-col lg:flex-row gap-4 lg:gap-6 items-stretch ${
-            contrary ? 'lg:flex-row-reverse' : ''
-          }`}
-        >
-          {/* Banner Column */}
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-stretch">
           <div className="w-full lg:w-[22%]">
             <div className="relative w-full mx-auto lg:mx-0 h-auto lg:h-full">
               <Link
@@ -261,7 +247,7 @@ const CategoryProductSlider = ({ contrary = false }) => {
                   height={500}
                   sizes="(max-width: 1024px) 100vw, 22vw"
                   className="w-full rounded-xl transition-transform duration-500 group-hover:scale-[1.02] object-cover"
-                  priority
+                  priority={index === 0}
                   quality={85}
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
@@ -276,20 +262,16 @@ const CategoryProductSlider = ({ contrary = false }) => {
                     quality={75}
                   />
                   <span className="text-[#334155] text-2xl xs:text-3xl sm:text-lg md:text-lg lg:text-lg font-bold px-3 md:pb-1 sm:pb-0 mt-2 md:mt-0 text-center">
-                  {category.name}
+                    {category.name}
                   </span>
                 </div>
               </Link>
             </div>
           </div>
 
-          {/* Slider Column */}
           <div className="w-full lg:w-[78%] relative" ref={containerRef}>
-            {/* Navigation Buttons */}
             <button
-              className={`category-swiper-prev absolute top-1/2 -translate-y-1/2 z-20 cursor-pointer group hidden md:flex items-center justify-center ${
-                contrary ? 'left-0 left-full' : 'right-0 right-full'
-              }`}
+              className={`${prevClass} cat-nav absolute top-1/2 -translate-y-1/2 z-20 cursor-pointer group hidden md:flex items-center justify-center right-0 right-full`}
               style={{ width: '40px', height: '40px' }}
               aria-label="محصولات قبلی"
               type="button"
@@ -299,14 +281,12 @@ const CategoryProductSlider = ({ contrary = false }) => {
                 alt=""
                 width={28}
                 height={64}
-                className={`transition-opacity duration-300 ${
-                  contrary ? 'rotate-[180deg]' : ''
-                } ${contrary ? '-ml-2' : '-mr-2'}`}
+                className="transition-opacity duration-300 -mr-2"
                 loading="lazy"
                 aria-hidden="true"
               />
               <span className="absolute inset-0 flex items-center justify-center text-white text-xl sm:text-2xl md:text-3xl font-bold">
-                {contrary ? '‹' : '›'}
+                ›
               </span>
             </button>
 
@@ -320,8 +300,8 @@ const CategoryProductSlider = ({ contrary = false }) => {
                 slidesPerView={2}
                 breakpoints={BREAKPOINTS}
                 navigation={{
-                  nextEl: '.category-swiper-next',
-                  prevEl: '.category-swiper-prev',
+                  nextEl: `.${nextClass}`,
+                  prevEl: `.${prevClass}`,
                 }}
                 autoplay={{
                   delay: 5000,
@@ -329,7 +309,7 @@ const CategoryProductSlider = ({ contrary = false }) => {
                   pauseOnMouseEnter: true,
                 }}
                 loop={products.length > 4}
-                className="category-products-slider"
+                className={sliderClass}
                 lazyPreloadPrevNext={2}
                 watchSlidesProgress
               >
@@ -346,9 +326,7 @@ const CategoryProductSlider = ({ contrary = false }) => {
             </div>
 
             <button
-              className={`category-swiper-next absolute top-1/2 -translate-y-1/2 z-20 cursor-pointer group hidden md:flex items-center justify-center ${
-                contrary ? 'right-0 right-full' : 'left-0 left-full'
-              }`}
+              className={`${nextClass} cat-nav absolute top-1/2 -translate-y-1/2 z-20 cursor-pointer group hidden md:flex items-center justify-center left-0 left-full`}
               style={{ width: '40px', height: '40px' }}
               aria-label="محصولات بعدی"
               type="button"
@@ -358,59 +336,86 @@ const CategoryProductSlider = ({ contrary = false }) => {
                 alt=""
                 width={28}
                 height={64}
-                className={`transition-opacity duration-300 ${
-                  contrary ? '' : 'rotate-[180deg]'
-                } ${contrary ? '-mr-2' : '-ml-2'}`}
+                className="transition-opacity duration-300 rotate-[180deg] -ml-2"
                 loading="lazy"
                 aria-hidden="true"
               />
               <span className="absolute inset-0 flex items-center justify-center text-white text-xl sm:text-2xl md:text-3xl font-bold drop-shadow-md">
-                {contrary ? '›' : '‹'}
+                ‹
               </span>
             </button>
           </div>
         </div>
 
         <style jsx>{`
-          .category-products-slider :global(.swiper) {
+          .${sliderClass} :global(.swiper) {
             overflow: visible !important;
             padding: 5px 0;
           }
-          .category-products-slider :global(.swiper-slide) {
+          .${sliderClass} :global(.swiper-slide) {
             height: auto !important;
           }
-          .category-swiper-prev,
-          .category-swiper-next {
+          .${prevClass},
+          .${nextClass} {
             transform: translateY(-50%);
           }
-          .category-swiper-prev.right-full {
+          .${prevClass}.right-full {
             right: 100%;
           }
-          .category-swiper-prev.left-full {
+          .${nextClass}.left-full {
             left: 100%;
           }
-          .category-swiper-next.left-full {
-            left: 100%;
-          }
-          .category-swiper-next.right-full {
-            right: 100%;
-          }
-          
+
           @media (max-width: 1023px) {
-            .category-swiper-prev,
-            .category-swiper-next {
+            .${prevClass},
+            .${nextClass} {
               display: none !important;
             }
           }
-          
+
           @media (max-width: 767px) {
-            .category-products-slider :global(.swiper-slide) {
+            .${sliderClass} :global(.swiper-slide) {
               margin-bottom: 0 !important;
             }
           }
         `}</style>
       </div>
     </section>
+  );
+});
+CategorySlider.displayName = 'CategorySlider';
+
+// Main Component
+const CategoryProductSlider = ({ limit = 3 }) => {
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        const categoriesData = await fetchCategoriesData();
+        if (categoriesData?.categories?.length) {
+          setCategories(categoriesData.categories);
+        }
+      } catch (error) {
+        console.warn('خطا در دریافت دسته‌بندی‌ها:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadCategories();
+  }, []);
+
+  if (loading) return <CategoryProductSliderSkeleton />;
+  if (!categories.length) return null;
+
+  return (
+    <>
+      {categories.slice(0, limit).map((category, index) => (
+        <CategorySlider key={category.id} category={category} index={index} />
+      ))}
+    </>
   );
 };
 

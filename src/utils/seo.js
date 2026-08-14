@@ -4,5 +4,5 @@ export const defaultOgImage = {
   url: `${SITE_URL}/images/test/Asset-1-3-1.png`,
   width: 200,
   height: 200,
-  alt: "آنی روز",
+  alt: "آنی رز",
 };

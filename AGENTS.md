@@ -1,8 +1,8 @@
-# AGENTS.md — AniRoz (آنی روز) — Complete Project Reference
+# AGENTS.md — AniRoz (آنی رز) — Complete Project Reference
 
 This file is the exhaustive, verified reference for the AniRoz e-commerce project. It is organized so that a new agent can ramp up without re-reading the whole codebase. **Every claim below was verified against the actual source at the time of writing.** When docs in the repo conflict with code, trust the code.
 
-**Project:** Next.js 16.2.12 (App Router + Turbopack), React 19, RTL Persian e-commerce store (فروشگاه اینترنتی آنی روز / AniRoz). Tailwind CSS 4, Zustand, React Query, Swiper 12, axios, framer-motion, react-hook-form, react-toastify, jose, js-cookie, react-otp-input.
+**Project:** Next.js 16.2.12 (App Router + Turbopack), React 19, RTL Persian e-commerce store (فروشگاه اینترنتی آنی رز / AniRoz). Tailwind CSS 4, Zustand, React Query, Swiper 12, axios, framer-motion, react-hook-form, react-toastify, jose, js-cookie, react-otp-input.
 
 **Canonical site:** `https://aniroz.ir` (defined once in `src/utils/seo.js` as `SITE_URL`). Backend: `https://aniroseco.ir/backend/api/v1/`.
 
@@ -189,24 +189,24 @@ public/
 | Key | Exact value |
 |---|---|
 | `metadataBase` | `new URL('https://aniroz.ir')` |
-| `title.default` | `"آنی روز | AniRoz - فروشگاه محصولات طبیعی و ارگانیک"` |
+| `title.default` | `"آنی رز | AniRoz - فروشگاه محصولات طبیعی و ارگانیک"` |
 | `title.template` | `"%s"` |
-| `description` | `"فروشگاه اینترنتی آنی روز - مرجع تخصصی خرید محصولات طبیعی، ارگانیک و سلامت محور با بهترین قیمت و کیفیت در ایران"` |
-| `authors` | `[{ name: "آنی روز" }]` |
-| `creator` | `"آنی روز"` |
-| `publisher` | `"آنی روز"` |
+| `description` | `"فروشگاه اینترنتی آنی رز - مرجع تخصصی خرید محصولات طبیعی، ارگانیک و سلامت محور با بهترین قیمت و کیفیت در ایران"` |
+| `authors` | `[{ name: "آنی رز" }]` |
+| `creator` | `"آنی رز"` |
+| `publisher` | `"آنی رز"` |
 | `openGraph.type` | `"website"` |
 | `openGraph.locale` | `"fa_IR"` |
-| `openGraph.siteName` | `"آنی روز"` |
-| `openGraph.title` | `"آنی روز | AniRoz - فروشگاه محصولات طبیعی و ارگانیک"` |
-| `openGraph.description` | `"فروشگاه اینترنتی آنی روز - خرید انواع محصولات طبیعی و ارگانیک با بهترین قیمت"` |
+| `openGraph.siteName` | `"آنی رز"` |
+| `openGraph.title` | `"آنی رز | AniRoz - فروشگاه محصولات طبیعی و ارگانیک"` |
+| `openGraph.description` | `"فروشگاه اینترنتی آنی رز - خرید انواع محصولات طبیعی و ارگانیک با بهترین قیمت"` |
 | `openGraph.url` | `"https://aniroz.ir"` |
-| `openGraph.images` | `[{ url: "/images/test/Asset-1-3-1.png", width: 200, height: 200, alt: "آنی روز" }]` |
+| `openGraph.images` | `[{ url: "/images/test/Asset-1-3-1.png", width: 200, height: 200, alt: "آنی رز" }]` |
 | `openGraph.countryName` | `"Iran"` |
 | `twitter.card` | `"summary_large_image"` |
-| `twitter.title` | `"آنی روز | AniRoz"` |
-| `twitter.description` | `"فروشگاه اینترنتی آنی روز - خرید انواع محصولات طبیعی و ارگانیک"` |
-| `twitter.images` | `[{ url: "/images/test/Asset-1-3-1.png", alt: "آنی روز" }]` |
+| `twitter.title` | `"آنی رز | AniRoz"` |
+| `twitter.description` | `"فروشگاه اینترنتی آنی رز - خرید انواع محصولات طبیعی و ارگانیک"` |
+| `twitter.images` | `[{ url: "/images/test/Asset-1-3-1.png", alt: "آنی رز" }]` |
 | `robots.index` | `true` |
 | `robots.follow` | `true` |
 | `robots.googleBot` | `{ index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 }` |
@@ -223,8 +223,8 @@ export const viewport = { width: "device-width", initialScale: 1, themeColor: "#
 
 **Three JSON-LD blocks** (server-rendered at the end of `<body>`):
 
-1. **`Store`** (`organizationJsonLd`): `@type: "Store"`, `@id: "https://aniroz.ir/#store"`, `name: "آنی روز"`, `alternateName: "AniRoz"`, `url`, `logo` + `image` both `https://aniroz.ir/images/test/Asset-1-3-1.png`, `brand: { "@type": "Brand", name: "آنی روز" }`, `address: { "@type": "PostalAddress", streetAddress: "تهران", addressLocality: "تهران", addressCountry: "IR" }`, `contactPoint: { "@type": "ContactPoint", telephone: "+98-9123456789", contactType: "customer service", availableLanguage: "fa" }`, `sameAs: ["https://instagram.com/aniroz"]`, `openingHours: "Sa-Th 09:00-20:00"`, `priceRange: "$$$"`. **⚠️ telephone/address/instagram are PLACEHOLDERS — report before changing.**
-2. **`WebSite`** (`webSiteJsonLd`): `@id: "https://aniroz.ir/#website"`, `name: "آنی روز"`, `alternateName: "AniRoz"`, `url`, `inLanguage: "fa-IR"`, `publisher: { "@id": "#store" }`, `potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: "https://aniroz.ir/shop?q={search_term_string}" }, "query-input": "required name=search_term_string" }`.
+1. **`Store`** (`organizationJsonLd`): `@type: "Store"`, `@id: "https://aniroz.ir/#store"`, `name: "آنی رز"`, `alternateName: "AniRoz"`, `url`, `logo` + `image` both `https://aniroz.ir/images/test/Asset-1-3-1.png`, `brand: { "@type": "Brand", name: "آنی رز" }`, `address: { "@type": "PostalAddress", streetAddress: "تهران", addressLocality: "تهران", addressCountry: "IR" }`, `contactPoint: { "@type": "ContactPoint", telephone: "+98-9123456789", contactType: "customer service", availableLanguage: "fa" }`, `sameAs: ["https://instagram.com/aniroz"]`, `openingHours: "Sa-Th 09:00-20:00"`, `priceRange: "$$$"`. **⚠️ telephone/address/instagram are PLACEHOLDERS — report before changing.**
+2. **`WebSite`** (`webSiteJsonLd`): `@id: "https://aniroz.ir/#website"`, `name: "آنی رز"`, `alternateName: "AniRoz"`, `url`, `inLanguage: "fa-IR"`, `publisher: { "@id": "#store" }`, `potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: "https://aniroz.ir/shop?q={search_term_string}" }, "query-input": "required name=search_term_string" }`.
 3. **`BreadcrumbList`** (`breadcrumbJsonLd`): single item `{ position 1, name: "خانه", item: "https://aniroz.ir" }`.
 
 **JSX structure:**
@@ -258,7 +258,7 @@ Both `next/font/local` with `display: 'swap'`.
 
 ## 6.4 `app/manifest.js`
 
-`export default function manifest()` returns: `name: "آنی روز | فروشگاه محصولات طبیعی و ارگانیک"`, `short_name: "آنی روز"`, `id: "https://aniroz.ir/"`, `start_url: "/"`, `scope: "/"`, `display: "standalone"`, `orientation: "portrait"`, `background_color: "#0c5505"`, `theme_color: "#0c5505"`, `lang: "fa"`, `dir: "rtl"`, `categories: ["shopping","health","lifestyle"]`, icons 32x32 (`/cropped-Group-48-3-32x32.png`), 180x180, 192x192 (`purpose: "any maskable"`).
+`export default function manifest()` returns: `name: "آنی رز | فروشگاه محصولات طبیعی و ارگانیک"`, `short_name: "آنی رز"`, `id: "https://aniroz.ir/"`, `start_url: "/"`, `scope: "/"`, `display: "standalone"`, `orientation: "portrait"`, `background_color: "#0c5505"`, `theme_color: "#0c5505"`, `lang: "fa"`, `dir: "rtl"`, `categories: ["shopping","health","lifestyle"]`, icons 32x32 (`/cropped-Group-48-3-32x32.png`), 180x180, 192x192 (`purpose: "any maskable"`).
 
 ## 6.5 `app/sitemap.js`
 
@@ -289,7 +289,7 @@ Sitemap: https://aniroz.ir/sitemap.xml
 
 ## 6.7 `app/not-found.jsx`
 
-- Metadata: `title: "صفحه پیدا نشد | آنی روز"`, `description: "صفحه مورد نظر شما در آنی روز یافت نشد"`, `robots: { index: false, follow: false }`.
+- Metadata: `title: "صفحه پیدا نشد | آنی رز"`, `description: "صفحه مورد نظر شما در آنی رز یافت نشد"`, `robots: { index: false, follow: false }`.
 - Renders one inline `WebPage` JSON-LD, `<h1>۴۰۴</h1>` (Persian digits, `font-pinar`), `<p>صفحه مورد نظر پیدا نشد!</p>`, and `<Link href="/">بازگشت به خانه</Link>`.
 
 ## 6.8 `app/api/[...path]/route.js` — backend proxy
@@ -311,101 +311,101 @@ Sitemap: https://aniroz.ir/sitemap.xml
 ## 6.9 Route-by-route page documentation
 
 ### `/` — `app/page.jsx` (Home)
-- Metadata: title `"آنی روز | AniRoz - فروشگاه محصولات طبیعی و ارگانیک"`, description `"فروشگاه اینترنتی آنی روز - مرجع تخصصی خرید محصولات طبیعی، ارگانیک و سلامت محور با بهترین قیمت و کیفیت در ایران"`, canonical `https://aniroz.ir`, openGraph `{title, description, url: "https://aniroz.ir", images: [defaultOgImage]}`, twitter summary_large_image. No robots/revalidate here.
+- Metadata: title `"آنی رز | AniRoz - فروشگاه محصولات طبیعی و ارگانیک"`, description `"فروشگاه اینترنتی آنی رز - مرجع تخصصی خرید محصولات طبیعی، ارگانیک و سلامت محور با بهترین قیمت و کیفیت در ایران"`, canonical `https://aniroz.ir`, openGraph `{title, description, url: "https://aniroz.ir", images: [defaultOgImage]}`, twitter summary_large_image. No robots/revalidate here.
 - JSON-LD: one `WebPage` (`@id: #webpage`, `isPartOf: #website`, `about: #store`).
 - Renders `<Root />` (server orchestrator). No guard, no Suspense (lazy sections handled inside Root).
 
 ### `/about` — `app/about/page.jsx`
-- Metadata: title `"درباره ما | آنی روز"`, description `"آشنایی با فروشگاه اینترنتی آنی روز - مرجع تخصصی محصولات طبیعی و ارگانیک با هدف سلامتی و کیفیت زندگی"`, canonical `/about`, OG with `defaultOgImage`. No twitter/robots.
+- Metadata: title `"درباره ما | آنی رز"`, description `"آشنایی با فروشگاه اینترنتی آنی رز - مرجع تخصصی محصولات طبیعی و ارگانیک با هدف سلامتی و کیفیت زندگی"`, canonical `/about`, OG with `defaultOgImage`. No twitter/robots.
 - JSON-LD: `AboutPage` + `BreadcrumbList` (خانه/درباره ما).
-- Static server component, `<h1>درباره آنی روز</h1>` + 3 paragraphs.
+- Static server component, `<h1>درباره آنی رز</h1>` + 3 paragraphs.
 
 ### `/addresses` — `app/addresses/page.jsx`
-- Metadata: title `"آدرس‌ها | آنی روز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`. No canonical.
+- Metadata: title `"آدرس‌ها | آنی رز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`. No canonical.
 - JSON-LD: `WebPage`. Renders `<ProtectedRoute><Addresses /></ProtectedRoute>`.
 
 ### `/blog` — `app/blog/page.jsx`
-- `revalidate = 40`. Metadata: title `"وبلاگ | آنی روز"`, canonical `/blog`, OG + twitter.
+- `revalidate = 40`. Metadata: title `"وبلاگ | آنی رز"`, canonical `/blog`, OG + twitter.
 - JSON-LD: `BreadcrumbList` (خانه/وبلاگ), `Blog` (`@id: /blog#blog`), `CollectionPage`.
 - Renders `<Suspense fallback={<BlogSkeleton />}><BlogList /></Suspense>`. No guard.
 
 ### `/blog/[id]/[slug]` — `app/blog/[id]/[slug]/page.jsx`
 - `revalidate = 40`. `SITE_URL = "https://aniroz.ir"`.
 - `generateStaticParams`: `serverFetch('articles?per_page=50')` → `{ id: String(a.id), slug: a.slug }`.
-- `generateMetadata`: fetch article by slug; if missing → `{ title: "مقاله | آنی روز", robots: { index: false } }`. Otherwise title `` `${article.title} | آنی روز` ``, description `excerpt || title`, canonical, OG `type: "article"` with image `{ url, alt }`, twitter with image alt, robots `max-image-preview: large`.
+- `generateMetadata`: fetch article by slug; if missing → `{ title: "مقاله | آنی رز", robots: { index: false } }`. Otherwise title `` `${article.title} | آنی رز` ``, description `excerpt || title`, canonical, OG `type: "article"` with image `{ url, alt }`, twitter with image alt, robots `max-image-preview: large`.
 - JSON-LD: `BlogPosting` (headline, description, image, datePublished/dateModified as `YYYY-MM-DD`, author Person or Organization fallback, publisher Organization, mainEntityOfPage) + `BreadcrumbList` (خانه/وبلاگ/title).
 - Renders hero Image (fill, `priority`), category pill, `<h1>` title, body via `dangerouslySetInnerHTML`, CTA "همین حالا خرید کنید" → `/shop`, "مطالب مرتبط" section (up to 3 via `fetchRelatedArticles`).
 
 ### `/cart` — `app/cart/page.jsx`
-- Metadata: title `"سبد خرید | آنی روز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`.
+- Metadata: title `"سبد خرید | آنی رز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`.
 - JSON-LD: `WebPage`. Renders `<Cart />`. **No guard** (cart accessible to guests).
 
 ### `/checkout` — `app/checkout/page.jsx`
-- Metadata: title `"تسویه حساب | آنی روز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`.
+- Metadata: title `"تسویه حساب | آنی رز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`.
 - JSON-LD: `WebPage`. Renders `<ProtectedRoute><Checkout /></ProtectedRoute>`.
 
 ### `/contact` — `app/contact/page.jsx`
-- Metadata: title `"تماس با ما | آنی روز"`, description `"راه‌های ارتباط با فروشگاه آنی روز - تلفن، ایمیل و آدرس برای پشتیبانی و مشاوره خرید"`, canonical `/contact`, OG with `defaultOgImage`.
+- Metadata: title `"تماس با ما | آنی رز"`, description `"راه‌های ارتباط با فروشگاه آنی رز - تلفن، ایمیل و آدرس برای پشتیبانی و مشاوره خرید"`, canonical `/contact`, OG with `defaultOgImage`.
 - JSON-LD: `ContactPage` + `BreadcrumbList` (خانه/تماس با ما).
 - Renders `<Contact />` (client view).
 
 ### `/doctor` — `app/doctor/page.jsx`
-- Metadata: title `"مشاوره تخصصی | آنی روز"`, canonical `/doctor`, OG with `defaultOgImage`.
+- Metadata: title `"مشاوره تخصصی | آنی رز"`, canonical `/doctor`, OG with `defaultOgImage`.
 - JSON-LD: `ProfessionalService` (`areaServed: "IR"`, `availableLanguage: "fa"`) + `BreadcrumbList`.
 - Renders `<ConsultantProfile />`. No guard/Suspense.
 
 ### `/doctors` — `app/doctors/page.jsx`
-- Metadata: title `"متخصصان | آنی روز"`, canonical `/doctors`, OG with `defaultOgImage`.
+- Metadata: title `"متخصصان | آنی رز"`, canonical `/doctors`, OG with `defaultOgImage`.
 - JSON-LD: `CollectionPage` (no inLanguage/isPartOf on this one) + `BreadcrumbList`.
 - Renders `<Doctors />`. No guard/Suspense.
 
 ### `/faq` — `app/faq/page.jsx`
-- Metadata: title `"سوالات متداول | آنی روز"`, canonical `/faq`, OG with `defaultOgImage`.
+- Metadata: title `"سوالات متداول | آنی رز"`, canonical `/faq`, OG with `defaultOgImage`.
 - JSON-LD: `FAQPage` with **6 hardcoded Q/A pairs** + `BreadcrumbList`.
 - Static server component, `<h1>سوالات متداول</h1>`, `<details>/<summary>` per FAQ.
 
 ### `/login` — `app/login/page.jsx`
-- Metadata: title `"ورود | آنی روز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`.
+- Metadata: title `"ورود | آنی رز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`.
 - JSON-LD: `WebPage`. Renders `<GuestRoute><Login /></GuestRoute>`.
 
 ### `/omde` — `app/omde/page.jsx`
-- Metadata: title `"سفارش عمده | آنی روز"`, canonical `/omde`, OG with `defaultOgImage`.
+- Metadata: title `"سفارش عمده | آنی رز"`, canonical `/omde`, OG with `defaultOgImage`.
 - JSON-LD: `Service` (`provider` Organization, `serviceType: "Bulk Order"`, `category: "Bulk Order"`) + `BreadcrumbList`.
 - Renders `<BulkOrderPage />` (client form). No guard/Suspense.
 
 ### `/orders` — `app/orders/page.jsx`
-- Metadata: title `"سفارشات | آنی روز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`.
+- Metadata: title `"سفارشات | آنی رز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`.
 - JSON-LD: `WebPage`. Renders `<ProtectedRoute><Orders /></ProtectedRoute>`.
 
 ### `/orders/[id]` — `app/orders/[id]/page.jsx`
-- Metadata: title `"جزئیات سفارش | آنی روز"`, `robots: { index: false, follow: false }`. **No openGraph/twitter/canonical** (inherits layout OG).
+- Metadata: title `"جزئیات سفارش | آنی رز"`, `robots: { index: false, follow: false }`. **No openGraph/twitter/canonical** (inherits layout OG).
 - JSON-LD: `WebPage` (no `url` field on this one). Renders `<ProtectedRoute><OrderDetail id={id} /></ProtectedRoute>`.
 
 ### `/payment` — `app/payment/page.jsx`
-- Metadata: title `"پرداخت | آنی روز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`.
+- Metadata: title `"پرداخت | آنی رز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`.
 - JSON-LD: `WebPage`. Renders `<Suspense fallback={<div>در حال بارگذاری...</div>}><PaymentPage /></Suspense>`. No guard.
 
 ### `/product/[id]/[slug]` — `app/product/[id]/[slug]/page.jsx`
 - `revalidate = 40`. `SITE_URL` and `PRICE_VALID_UNTIL = Date.now() + 30 days` (module-evaluated).
 - `generateStaticParams`: `serverFetch('products?per_page=100')` → `{ id: String(p.id), slug: p.slug || 'product' }` (catch → `[]`).
-- `generateMetadata`: fetch product; missing → `{ title: "محصول | آنی روز", description: "محصول مورد نظر یافت نشد" }`. Else title `` `${product.name} | آنی روز` ``, description `shortDescription || description || name`, canonical, OG `type: 'website'` with image `{ url, alt }`, twitter with image alt, robots `max-image-preview: large`.
+- `generateMetadata`: fetch product; missing → `{ title: "محصول | آنی رز", description: "محصول مورد نظر یافت نشد" }`. Else title `` `${product.name} | آنی رز` ``, description `shortDescription || description || name`, canonical, OG `type: 'website'` with image `{ url, alt }`, twitter with image alt, robots `max-image-preview: large`.
 - JSON-LD:
-  1. **`Product`** — name, description, image, `sku`/`mpn` = id, brand "آنی روز", category "محصولات طبیعی", `offers` (price = salePrice || price, `priceCurrency: "IRR"`, priceValidUntil, InStock/OutOfStock, NewCondition, seller, `shippingDetails` with free shipping to IR, `hasMerchantReturnPolicy` 7-day free return), `additionalProperty` وضعیت.
+  1. **`Product`** — name, description, image, `sku`/`mpn` = id, brand "آنی رز", category "محصولات طبیعی", `offers` (price = salePrice || price, `priceCurrency: "IRR"`, priceValidUntil, InStock/OutOfStock, NewCondition, seller, `shippingDetails` with free shipping to IR, `hasMerchantReturnPolicy` 7-day free return), `additionalProperty` وضعیت.
   2. **`WebPage`** — name, url, isPartOf #website.
   3. **`BreadcrumbList`** — خانه/فروشگاه/product name.
 - Renders `<ProductDetail id={id} slug={slug} />` (the view ignores these props; client uses `useParams()`).
 
 ### `/profile` — `app/profile/page.jsx`
-- Metadata: title `"پروفایل | آنی روز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`.
+- Metadata: title `"پروفایل | آنی رز"`, `robots: { index: false, follow: false }`, OG with `defaultOgImage`.
 - JSON-LD: `WebPage`. Renders `<ProtectedRoute><Profile /></ProtectedRoute>`.
 
 ### `/rules` — `app/rules/page.jsx`
-- Metadata: title `"قوانین و مقررات | آنی روز"`, canonical `/rules`, OG with `defaultOgImage`.
+- Metadata: title `"قوانین و مقررات | آنی رز"`, canonical `/rules`, OG with `defaultOgImage`.
 - JSON-LD: `WebPage` (no description) + `BreadcrumbList`.
 - Static component, `<h1>قوانین و مقررات</h1>` + 5 sections (`ثبت سفارش`, `پرداخت`, `ارسال سفارش`, `بازگشت کالا`, `حریم خصوصی`).
 
 ### `/shop` — `app/shop/page.jsx`
-- `revalidate = 40`. Metadata: title `"فروشگاه | آنی روز"`, canonical `/shop`, OG + twitter.
+- `revalidate = 40`. Metadata: title `"فروشگاه | آنی رز"`, canonical `/shop`, OG + twitter.
 - **Dead constant:** `const API_BASE = process.env.NEXT_PUBLIC_API_URL || "..."` (unused).
 - `fetchProductsForJsonLd()`: `serverFetch('products?per_page=24')` → `data?.data || []`.
 - JSON-LD: `BreadcrumbList`, `CollectionPage`, `ItemList` (only when products exist; each ListItem has name/url/image/offers with `priceCurrency: "IRR"`).
@@ -693,7 +693,7 @@ Auth rehydration lives in `ClientLayout.jsx` `<Authorize>` (NOT in the store).
 
 ## 11.3 `blog/BlogList.jsx`
 - **Server component (async)** — the only true server component in these dirs. Uses `serverFetch('articles?per_page=50')`.
-- `<h1>وبلاگ آنی روز</h1>`. Grid of post cards (Link `/blog/{id}/{slug}`, Image `alt={post.title}` lazy, `<h2>` title, chip `مشاهده مقاله`).
+- `<h1>وبلاگ آنی رز</h1>`. Grid of post cards (Link `/blog/{id}/{slug}`, Image `alt={post.title}` lazy, `<h2>` title, chip `مشاهده مقاله`).
 - Emits its own `Blog` JSON-LD (`blogPost` array of BlogPosting) + `ItemList` JSON-LD (these are separate from the page-level JSON-LD in `app/blog/page.jsx`).
 - Empty state: `مجله‌ای وجود ندارد` + `به زودی مقالات جدیدی منتشر خواهیم کرد`.
 
@@ -903,7 +903,7 @@ export default JsonLd;
 ## 12.1 `Contact/Contact.jsx` (client, self-contained)
 - State `contact (null), loading (true)`. Fetches `fetchContactSettings()` (cache `'contact-settings'`, 40s).
 - **Fallback data (placeholders):** phones `["021-12345678", "09121234567"]`, emails `["info@aniroz.ir"]`, addresses `["تهران، خیابان انقلاب، ..."]`, workingHours `"شنبه تا پنجشنبه ۹ تا ۱۸"`, fax `"021-12345679"`, supportTitle `"پشتیبانی آنی رز"`.
-- `<h1>{supportTitle}</h1>`, subtitle `تیم پشتیبانی آنی روز آماده پاسخگویی به سوالات شماست`, `<h2>` items `تلفن تماس/ایمیل/آدرس/ساعت کاری/فکس/شبکههای اجتماعی`. Icons from react-feather. `normalizeSocials` helper. Social links `target="_blank" rel="noopener noreferrer"`.
+- `<h1>{supportTitle}</h1>`, subtitle `تیم پشتیبانی آنی رز آماده پاسخگویی به سوالات شماست`, `<h2>` items `تلفن تماس/ایمیل/آدرس/ساعت کاری/فکس/شبکههای اجتماعی`. Icons from react-feather. `normalizeSocials` helper. Social links `target="_blank" rel="noopener noreferrer"`.
 
 ## 12.2 `Profile/Profile.jsx` (client)
 - State `profile, loading, saving, name, email`. `fetchProfile()`/`updateProfile({name, email})` from auth.js (cache `'profile'`).
@@ -966,7 +966,7 @@ export default JsonLd;
 - Swiper (Autoplay 4000, loop). Slide: `Image alt={item.name}`, `<h4>{item.name}</h4>`, `<p>{item.role}</p>`, `StarRating`, comment (scrollable). Local `StarRating` with half-star opacity. Nav `aria-label="اسلاید قبلی"/"اسلاید بعدی"`.
 
 ## 13.11 `blogPostsSlider/blogPostsSlider.jsx` (client, LAZY)
-- `fetchArticles({ per_page: 20 })` (new `api/services/articles.js`). `titleEn: "AniRoz Blog"`, `titleFa: "مجله سلامت آنی روز"`. Swiper breakpoints 640→2 … 1024→4. Slide: Link `/blog/{id}/{slug}`, `Image alt={post.title}`, overlay `-bottom-20` with `<h4>` title + `مشاهده` chip. Inline `<style>` overrides swiper overflow.
+- `fetchArticles({ per_page: 20 })` (new `api/services/articles.js`). `titleEn: "AniRoz Blog"`, `titleFa: "مجله سلامت آنی رز"`. Swiper breakpoints 640→2 … 1024→4. Slide: Link `/blog/{id}/{slug}`, `Image alt={post.title}`, overlay `-bottom-20` with `<h4>` title + `مشاهده` chip. Inline `<style>` overrides swiper overflow.
 
 ---
 
@@ -1021,7 +1021,7 @@ export default JsonLd;
 - `seo.js`:
 ```js
 export const SITE_URL = "https://aniroz.ir";
-export const defaultOgImage = { url: `${SITE_URL}/images/test/Asset-1-3-1.png`, width: 200, height: 200, alt: "آنی روز" };
+export const defaultOgImage = { url: `${SITE_URL}/images/test/Asset-1-3-1.png`, width: 200, height: 200, alt: "آنی رز" };
 ```
 
 ---

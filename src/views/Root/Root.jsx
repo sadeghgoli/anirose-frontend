@@ -5,6 +5,8 @@ import SaleSection from "../../components/index/saleSection";
 import GiftRequestComponent from "../../components/index/giftRequest";
 import AboutSection from "../../components/index/aboutSection";
 import AniroseStats from "../../components/index/aniroseStats";
+import TraditionalConsultation from "../../components/index/traditionalConsultation";
+import FarmProductBuy from "../../components/index/farmProductBuy";
 
 import {
   LazyCategories,
@@ -18,15 +20,22 @@ const Root = () => {
     <>
       <HeroSlider />
       <LazyCategories />
-      <DoubleBanner />
-      <WhyChooseUs />
       <SaleSection />
-      <GiftRequestComponent />
+      <DoubleBanner />
+
       <LazyCategoryProductSlider />
+      <TraditionalConsultation />
+
       <AboutSection />
-      <LazyCategoryProductSlider contrary={true} />
+      <FarmProductBuy />
+
+
       <AniroseStats />
+      <GiftRequestComponent />
+
       <LazyTestimonials />
+      <WhyChooseUs />
+
       <LazyBlogPostsSlider />
     </>
   );

@@ -8,6 +8,7 @@ import MobileHeader from "./MobileHeader";
 
 const MENU = {
   home: { id: 0, title: "خانه", link: "/" },
+  consultation: { id: 1000, title: "مشاوره طب سنتی", link: "/doctor" },
   shop: { id: 999, title: "فروشگاه", link: "/shop" },
   about: { id: 0, title: "درباره ما", link: "/about" },
   contact: { id: 1, title: "تماس با ما", link: "/contact" },
@@ -22,12 +23,12 @@ const buildBottomNav = (isAuthenticated) => [
 ];
 
 const buildHeaderData = (isAuthenticated) => ({
-  topBar: { leftIcon: "/images/test/Group-2-1.png", text: "آنی رز، سلامتی هر روز!", rightIcon: "/images/test/Group-2-1.png" },
+  topBar: { leftIcon: "/images/test/Group-2-1.png", text: "آنی رز، جوانی هر روز!", rightIcon: "/images/test/Group-2-1.png" },
   logo: { src: "/images/test/Group-43-1.png", alt: "آنی رز", link: "/" },
   userAccount: { text: "حساب کاربری", loginLink: "/login", dashboardLink: "/profile" },
-  mainMenu: [MENU.home, MENU.shop],
+  mainMenu: [MENU.home, MENU.consultation, MENU.shop],
   secondaryMenu: [MENU.about, MENU.contact, MENU.blog],
-  mobileMenu: [MENU.home, MENU.shop, MENU.about, MENU.contact, MENU.blog],
+  mobileMenu: [MENU.home, MENU.consultation, MENU.shop, MENU.about, MENU.contact, MENU.blog],
   bottomNav: buildBottomNav(isAuthenticated),
 });
 
@@ -48,8 +49,8 @@ const Header = () => {
                 }));
                 setHeaderData((prev) => ({
                   ...prev,
-                  mainMenu: [MENU.home, ...headerMenu, MENU.shop],
-                  mobileMenu: [MENU.home, ...headerMenu, MENU.shop, ...prev.secondaryMenu],
+                  mainMenu: [MENU.home, MENU.consultation, ...headerMenu, MENU.shop],
+                  mobileMenu: [MENU.home, MENU.consultation, ...headerMenu, MENU.shop, ...prev.secondaryMenu],
                   bottomNav: buildBottomNav(isAuthenticated),
                 }));
             } catch {

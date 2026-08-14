@@ -26,7 +26,7 @@ const Categories = () => {
     if (!categories.length) return null;
 
     return (
-        <section className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-10">
+        <section className="w-full max-w-7xl mx-auto px-4 ">
             {/* عنوان */}
             <div className="mb-10">
                 <div className="relative min-h-[1px]">
@@ -34,48 +34,32 @@ const Categories = () => {
                         <div className="flex justify-center relative flex-wrap mx-auto">
                             <div className="relative min-h-[1px] w-full flex justify-center">
                                 <div className="w-full max-w-[300px] text-center">
-                                    {/* تصویر بالا */}
-                                    <div className="mb-2 flex justify-center">
-                                        <Image
-                                            src="/images/test/Group-3-min.png"
-                                            alt=""
-                                            width={70}
-                                            height={70}
-                                            className="w-[50px] sm:w-[60px] lg:w-[70px] h-auto"
-                                            priority={false}
-                                        />
-                                    </div>
-
-                                    {/* تیتر انگلیسی */}
-                                    <h2 className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[1.2] mb-1 text-gray-500">
-                                        products categorization
-                                    </h2>
+                                   
 
                                     {/* بک‌گراند زیر تیتر فارسی */}
                                     <div
-                                        className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 text-center bg-no-repeat bg-center"
-                                        style={{
-                                            backgroundImage: "url('/images/test/Group-45-min-1.png')",
-                                            backgroundPosition: "bottom center",
-                                            backgroundRepeat: "no-repeat",
-                                            backgroundSize: "100% auto"
-                                        }}
+                                        className="px-4 sm:px-6 pt-2 text-center bg-no-repeat bg-center"
+                                     
                                     >
                                         <h2 className="text-[16px] font-bold sm:text-[18px] lg:text-[20px] leading-[1.3] m-0 text-[#0c5505] whitespace-nowrap">
                                             دسته بندی محصولات
                                         </h2>
                                     </div>
 
-                                    {/* دکوریشن پایین */}
-                                    <div className="flex justify-center items-start mt-[-28px] sm:mt-[-38px] lg:mt-[-40px]">
+                                     {/* تصویر بالا */}
+                                    <div className="mb-2 flex justify-center">
                                         <Image
-                                            src="/images/test/Frame-73.png"
+                                            src="/images/test/Group-3-min.png"
                                             alt=""
-                                            width={80}
-                                            height={80}
-                                            className="w-[40px] sm:w-[60px] lg:w-[80px] h-auto rotate-90"
+                                            width={70}
+                                            height={70}
+                                            className="w-[50px] sm:w-[60px] lg:w-[70px] h-auto rotate-[180deg]"
+                                            priority={false}
                                         />
                                     </div>
+
+                                    
+
                                 </div>
                             </div>
                         </div>
@@ -112,8 +96,8 @@ const Categories = () => {
                             spaceBetween: 24,
                         },
                         1280: {
-                            slidesPerView: 5,
-                            spaceBetween: 24,
+                            slidesPerView: 4,
+                            spaceBetween: 2,
                         },
                     }}
                     className="py-2"
@@ -139,7 +123,7 @@ const Categories = () => {
                                     </div>
                                     
                                     {/* محتوای روی تصویر */}
-                                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                                    <div className="absolute inset-0 flex flex-col items-center justify-center mb-4">
                                         <div className="relative w-18 h-18 sm:w-22 sm:h-22 lg:w-22 lg:h-22">
                                             <Image
                                                 src={category.image || "/images/test/placeholder.jpg"}
@@ -150,7 +134,7 @@ const Categories = () => {
                                                 priority={false}
                                             />
                                         </div>
-                                        <span className="text-[#334155] mb-6 font-bold px-3 sm:px-4 rounded-full text-xs sm:text-sm lg:text-base mt-2 overflow-hidden text-ellipsis whitespace-nowrap block text-center w-8/10">
+                                        <span className="text-[#334155] mt-8 font-bold px-3 sm:px-4 rounded-full text-xs sm:text-sm lg:text-base overflow-hidden text-ellipsis whitespace-nowrap block text-center w-8/10">
     {category.name}
 </span>
                                     </div>

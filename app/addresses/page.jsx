@@ -4,14 +4,14 @@ import ProtectedRoute from '../../src/components/common/ProtectedRoute'
 import { defaultOgImage } from '../../src/utils/seo'
 
 export const metadata = {
-  title: "آدرس‌ها | آنی روز",
-  description: "مدیریت آدرس‌های ارسال سفارش در آنی روز - افزودن و ویرایش آدرس‌ها",
+  title: "آدرس‌ها | آنی رز",
+  description: "مدیریت آدرس‌های ارسال سفارش در آنی رز - افزودن و ویرایش آدرس‌ها",
   robots: {
     index: false,
     follow: false,
   },
   openGraph: {
-    title: "آدرس‌ها | آنی روز",
+    title: "آدرس‌ها | آنی رز",
     description: "مدیریت آدرس‌های ارسال سفارش",
     images: [defaultOgImage],
   },

@@ -8,21 +8,21 @@
     "stats": [
       {
         "id": 1,
-        "value": 5,
-        "title": "سابقه فعالیت",
+        "value": 1398,
+        "title": "سال تاسیس",
         "subtitle": "با حداکثر رضایت",
-        "suffix": "+"
+        "suffix": ""
       },
       {
         "id": 2,
-        "value": 40,
+        "value": 500,
         "title": "تعداد محصولات",
         "subtitle": "با حداکثر کیفیت",
         "suffix": "+"
       },
       {
         "id": 3,
-        "value": 10,
+        "value": 40,
         "title": "اعضای تیم",
         "subtitle": "با حرفه ای ترین اعضا",
         "suffix": "+"

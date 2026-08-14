@@ -2,14 +2,14 @@ import JsonLd from "../../src/components/JsonLd";
 import { defaultOgImage } from "../../src/utils/seo";
 
 export const metadata = {
-  title: "قوانین و مقررات | آنی روز",
-  description: "قوانین و مقررات فروشگاه آنی روز - شرایط ثبت سفارش، پرداخت، ارسال و بازگشت کالا",
+  title: "قوانین و مقررات | آنی رز",
+  description: "قوانین و مقررات فروشگاه آنی رز - شرایط ثبت سفارش، پرداخت، ارسال و بازگشت کالا",
   alternates: {
     canonical: "https://aniroz.ir/rules",
   },
   openGraph: {
-    title: "قوانین و مقررات | آنی روز",
-    description: "قوانین و مقررات فروشگاه آنی روز",
+    title: "قوانین و مقررات | آنی رز",
+    description: "قوانین و مقررات فروشگاه آنی رز",
     images: [defaultOgImage],
   },
 };
@@ -17,7 +17,7 @@ export const metadata = {
 const rulesJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "قوانین و مقررات آنی روز",
+  name: "قوانین و مقررات آنی رز",
   url: "https://aniroz.ir/rules",
   inLanguage: "fa-IR",
   isPartOf: { "@id": "https://aniroz.ir/#website" },

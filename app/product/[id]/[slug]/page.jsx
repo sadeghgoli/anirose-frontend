@@ -46,12 +46,12 @@ export async function generateMetadata({ params }) {
 
   if (!product) {
     return {
-      title: "محصول | آنی روز",
+      title: "محصول | آنی رز",
       description: "محصول مورد نظر یافت نشد",
     };
   }
 
-  const title = `${product.name} | آنی روز`;
+  const title = `${product.name} | آنی رز`;
   const description = product.shortDescription || product.description || product.name;
   const canonical = `${SITE_URL}/product/${id}/${product.slug || slug}`;
 
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }) {
       description,
       url: canonical,
       type: 'website',
-      siteName: 'آنی روز',
+      siteName: 'آنی رز',
       locale: 'fa_IR',
       images: product.image ? [{ url: product.image, alt: product.name }] : [],
     },
@@ -91,7 +91,7 @@ export default async function ProductPage({ params }) {
         image: product.image || undefined,
         sku: String(product.id),
         mpn: String(product.id),
-        brand: { '@type': 'Brand', name: 'آنی روز' },
+        brand: { '@type': 'Brand', name: 'آنی رز' },
         category: 'محصولات طبیعی',
         offers: {
           '@type': 'Offer',
@@ -103,7 +103,7 @@ export default async function ProductPage({ params }) {
             ? 'https://schema.org/InStock'
             : 'https://schema.org/OutOfStock',
           itemCondition: 'https://schema.org/NewCondition',
-          seller: { '@type': 'Organization', name: 'آنی روز' },
+          seller: { '@type': 'Organization', name: 'آنی رز' },
           shippingDetails: {
             '@type': 'OfferShippingDetails',
             shippingRate: {

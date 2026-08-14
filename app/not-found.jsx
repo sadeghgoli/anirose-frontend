@@ -2,8 +2,8 @@ import Link from "next/link";
 import JsonLd from "../src/components/JsonLd";
 
 export const metadata = {
-  title: "صفحه پیدا نشد | آنی روز",
-  description: "صفحه مورد نظر شما در آنی روز یافت نشد",
+  title: "صفحه پیدا نشد | آنی رز",
+  description: "صفحه مورد نظر شما در آنی رز یافت نشد",
   robots: {
     index: false,
     follow: false,
@@ -16,7 +16,7 @@ export default function NotFound() {
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "WebPage",
-        name: "صفحه پیدا نشد - آنی روز",
+        name: "صفحه پیدا نشد - آنی رز",
         description: "صفحه مورد نظر شما یافت نشد",
       }} />
       <div className="text-center px-4">

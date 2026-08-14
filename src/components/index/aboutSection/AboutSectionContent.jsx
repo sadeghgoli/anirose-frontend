@@ -79,11 +79,15 @@ const AboutSectionContent = ({ data }) => {
                                </div>
 
                                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0C5505] mb-4">
-                                   {data.title ? data.title : "???? ?? ??? ?? ??? ??????"}
+                                   {/* {data.title ? data.title : "???? ?? ??? ?? ??? ??????"} */}
+                                   درباره آنی رز
                                </h2>
 
                                <p className="text-sm md:text-base text-[#334155] leading-relaxed mb-8 max-w-2xl">
-                                   {data.description}
+                                   {/* {data.description} */}
+                                   شرکت کشت و صنعت درخت زندگی با برند آنی رز، از سال ۱۳۹۸ فعالیت خود را در حوزه تامین محصولات ارگانیک، گیاهان دارویی و ادویه جات آغاز نموده و به عنوان تامین کننده، با شرکت‌های دارویی، آرایشی و بهداشتی، شرکت‌های غذایی و عطاری‌ها، سلامتکده‌ها و هایپرهای بزرگ همکاری می‌نماید.
+
+
                                </p>
                            </div>
 

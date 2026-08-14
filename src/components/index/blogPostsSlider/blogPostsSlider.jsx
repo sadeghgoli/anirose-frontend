@@ -26,7 +26,7 @@ const BlogPostsSlider = () => {
                 setData({
                     titleIcon: "/images/test/Group-3-min.png",
                     titleEn: "AniRoz Blog",
-                    titleFa: "مجله سلامت آنی روز",
+                    titleFa: "مجله سلامت آنی رز",
                     posts,
                 });
             } catch {

@@ -53,25 +53,25 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const article = await fetchArticle(slug);
   if (!article) {
-    return { title: "مقاله | آنی روز", robots: { index: false } };
+    return { title: "مقاله | آنی رز", robots: { index: false } };
   }
   const canonical = `${SITE_URL}/blog/${article.id}/${article.slug}`;
   return {
-    title: `${article.title} | آنی روز`,
+    title: `${article.title} | آنی رز`,
     description: article.excerpt || article.title,
     alternates: { canonical },
     openGraph: {
-      title: `${article.title} | آنی روز`,
+      title: `${article.title} | آنی رز`,
       description: article.excerpt || article.title,
       url: canonical,
       type: "article",
       locale: "fa_IR",
-      siteName: "آنی روز",
+      siteName: "آنی رز",
       images: article.image ? [{ url: article.image, alt: article.title }] : [],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${article.title} | آنی روز`,
+      title: `${article.title} | آنی رز`,
       description: article.excerpt || article.title,
       images: article.image ? [{ url: article.image, alt: article.title }] : [],
     },
@@ -97,8 +97,8 @@ export default async function BlogPostPage({ params }) {
     dateModified: publishedDate || undefined,
     author: post.author
       ? { "@type": "Person", name: post.author.name }
-      : { "@type": "Organization", name: "آنی روز", url: SITE_URL },
-    publisher: { "@type": "Organization", name: "آنی روز", url: SITE_URL },
+      : { "@type": "Organization", name: "آنی رز", url: SITE_URL },
+    publisher: { "@type": "Organization", name: "آنی رز", url: SITE_URL },
     mainEntityOfPage: canonical,
   };
 
@@ -157,7 +157,7 @@ export default async function BlogPostPage({ params }) {
                 <span>تاریخ انتشار: {formatDate(post.published_at)}</span>
               )}
               {formatDate(post.published_at) && <span aria-hidden="true">•</span>}
-              <span>{post.author?.name || "وبلاگ آنی روز"}</span>
+              <span>{post.author?.name || "وبلاگ آنی رز"}</span>
             </div>
           </header>
 
@@ -171,7 +171,7 @@ export default async function BlogPostPage({ params }) {
               <div className="prose prose-gray max-w-none">
                 <p className="text-gray-600 text-base sm:text-lg leading-9 mb-6">
                   {post.excerpt ||
-                    "در این مقاله از وبلاگ آنی روز به بررسی این موضوع پرداخته‌ایم. برای مطالعه مطالب بیشتر به بخش وبلاگ مراجعه کنید."}
+                    "در این مقاله از وبلاگ آنی رز به بررسی این موضوع پرداخته‌ایم. برای مطالعه مطالب بیشتر به بخش وبلاگ مراجعه کنید."}
                 </p>
               </div>
             )}
@@ -181,7 +181,7 @@ export default async function BlogPostPage({ params }) {
                 همین حالا خرید کنید
               </h3>
               <p className="text-gray-600 text-sm sm:text-base mb-4">
-                برای مشاهده محصولات طبیعی و ارگانیک، به فروشگاه آنی روز سر بزنید.
+                برای مشاهده محصولات طبیعی و ارگانیک، به فروشگاه آنی رز سر بزنید.
               </p>
               <Link
                 href="/shop"

@@ -4,15 +4,15 @@ import GuestRoute from '../../src/components/common/GuestRoute'
 import { defaultOgImage } from '../../src/utils/seo'
 
 export const metadata = {
-  title: "ورود | آنی روز",
-  description: "ورود به حساب کاربری آنی روز - احراز هویت و دسترسی به پنل کاربری",
+  title: "ورود | آنی رز",
+  description: "ورود به حساب کاربری آنی رز - احراز هویت و دسترسی به پنل کاربری",
   robots: {
     index: false,
     follow: false,
   },
   openGraph: {
-    title: "ورود | آنی روز",
-    description: "ورود به حساب کاربری آنی روز",
+    title: "ورود | آنی رز",
+    description: "ورود به حساب کاربری آنی رز",
     images: [defaultOgImage],
   },
 };
@@ -20,7 +20,7 @@ export const metadata = {
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "ورود به آنی روز",
+  name: "ورود به آنی رز",
   description: "ورود به حساب کاربری",
   url: "https://aniroz.ir/login",
   inLanguage: "fa-IR",

@@ -4,15 +4,15 @@ import ProtectedRoute from '../../src/components/common/ProtectedRoute'
 import { defaultOgImage } from '../../src/utils/seo'
 
 export const metadata = {
-  title: "سفارشات | آنی روز",
-  description: "مشاهده و پیگیری سفارشات ثبت شده در آنی روز - وضعیت سفارش ها و جزئیات",
+  title: "سفارشات | آنی رز",
+  description: "مشاهده و پیگیری سفارشات ثبت شده در آنی رز - وضعیت سفارش ها و جزئیات",
   robots: {
     index: false,
     follow: false,
   },
   openGraph: {
-    title: "سفارشات | آنی روز",
-    description: "مشاهده و پیگیری سفارشات ثبت شده در آنی روز",
+    title: "سفارشات | آنی رز",
+    description: "مشاهده و پیگیری سفارشات ثبت شده در آنی رز",
     images: [defaultOgImage],
   },
 };
@@ -20,7 +20,7 @@ export const metadata = {
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "سفارشات آنی روز",
+  name: "سفارشات آنی رز",
   description: "مشاهده و پیگیری سفارشات",
   url: "https://aniroz.ir/orders",
   inLanguage: "fa-IR",

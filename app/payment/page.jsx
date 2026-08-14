@@ -4,15 +4,15 @@ import JsonLd from "../../src/components/JsonLd";
 import { defaultOgImage } from "../../src/utils/seo";
 
 export const metadata = {
-  title: "پرداخت | آنی روز",
-  description: "پرداخت آنلاین و امن سفارش در آنی روز - درگاه پرداخت مستقیم",
+  title: "پرداخت | آنی رز",
+  description: "پرداخت آنلاین و امن سفارش در آنی رز - درگاه پرداخت مستقیم",
   robots: {
     index: false,
     follow: false,
   },
   openGraph: {
-    title: "پرداخت | آنی روز",
-    description: "پرداخت آنلاین و امن سفارش در آنی روز",
+    title: "پرداخت | آنی رز",
+    description: "پرداخت آنلاین و امن سفارش در آنی رز",
     images: [defaultOgImage],
   },
 };
@@ -20,7 +20,7 @@ export const metadata = {
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "پرداخت آنی روز",
+  name: "پرداخت آنی رز",
   description: "پرداخت آنلاین سفارش",
   url: "https://aniroz.ir/payment",
   inLanguage: "fa-IR",

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HeroSlider = () => {
     return (
-        <div className="relative w-full py-10 overflow-x-clip">
+        <div className="relative w-full py-0 overflow-x-clip">
             {/* بک‌گراند راست (Frame-41-2.png) */}
             <div className="absolute top-0 right-0 w-[90px] h-full z-0 pointer-events-none">
                 <Image
@@ -32,12 +32,12 @@ const HeroSlider = () => {
                         <div className="flex flex-row items-center max-sm:flex-col-reverse max-sm:gap-3">
                     
                             {/* بخش تصویر بنر */}
-                            <div className="relative !h-[300px] w-full">
+                            <div className="relative !h-[380px] w-full">
                                 <Image
                                     src="/images/banners/IMG_20260729_092200_700.jpg" // مسیر تصویر بنر را تغییر دهید
                                     alt="بنر اصلی"
                                     fill
-                                    className="md:object-cover object-contain rounded-3xl w-full !h-[300px]"
+                                    className="md:object-cover object-contain rounded-3xl w-full !h-[380px]"
                                      loading="lazy"
                                     sizes="width:100%"
                                 />
