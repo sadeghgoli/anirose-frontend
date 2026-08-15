@@ -9,7 +9,6 @@ import "swiper/css/pagination";
 const DESKTOP_SLIDES = [
   { src: "/images/banners/slider-1.jpg", alt: "بنر تخفیف ویژه آنی رز" },
   { src: "/images/banners/slider-2.jpg", alt: "بنر محصولات ارگانیک آنی رز" },
-  { src: "/images/banners/slider-3.png", alt: "بنر دمنوش‌های گیاهی آنی رز" },
   { src: "/images/banners/slider-4.jpg", alt: "بنر فروشگاه اینترنتی آنی رز" },
 ];
 
