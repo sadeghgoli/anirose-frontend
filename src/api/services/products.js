@@ -47,20 +47,26 @@ const mapProduct = (p) => {
   };
 };
 
-export const fetchProducts = async (params = {}) => {
+export const fetchProducts = async (params = {}, options = {}) => {
   const queryParams = {};
-  if (params.page) queryParams.page = params.page;
-  if (params.per_page) queryParams.per_page = params.per_page;
+  if (params.page != null) queryParams.page = params.page;
+  if (params.per_page != null) queryParams.per_page = params.per_page;
   if (params.category_id) queryParams.category_id = params.category_id;
   if (params.search) queryParams.search = params.search;
   if (params.suggested) queryParams.suggested = params.suggested ? '1' : undefined;
   if (params.sort) queryParams.sort = params.sort;
 
-  const key = `products_${JSON.stringify(queryParams)}`;
-  const data = await fetchWithCache(key, async () => {
-    const response = await axiosInstance.get(API_ENDPOINTS.products, { params: queryParams });
+  const request = async () => {
+    const response = await axiosInstance.get(API_ENDPOINTS.products, {
+      params: queryParams,
+      signal: options.signal,
+    });
     return response.data;
-  }, CACHE_DURATION);
+  };
+
+  const data = options.useCache
+    ? await fetchWithCache(`products_${JSON.stringify(queryParams)}`, request, CACHE_DURATION)
+    : await request();
 
   return {
     products: (data?.data || []).map(mapProduct),
@@ -83,58 +89,41 @@ export const fetchProductById = async (id) => {
   return product;
 };
 
-export const fetchFilteredProducts = async (filters = {}, page = 1, perPage = 12) => {
+export const fetchFilteredProducts = async (filters = {}, page = 1, perPage = 12, options = {}) => {
   const params = {
     page,
     per_page: perPage,
   };
 
   if (filters.searchTerm) params.search = filters.searchTerm;
-  if (filters.categories && filters.categories.length > 0) {
-    params.category_id = filters.categories[0];
-  }
+  const categoryId = (filters.categories || []).find((id) => Number.isFinite(id) && id > 0);
+  if (categoryId) params.category_id = categoryId;
   if (filters.sortBy === 'price_asc') params.sort = 'price_asc';
   else if (filters.sortBy === 'price_desc') params.sort = 'price_desc';
   else if (filters.sortBy === 'newest') params.sort = 'newest';
   else if (filters.sortBy === 'oldest') params.sort = 'oldest';
 
-  const result = await fetchProducts(params);
-
-  let products = result.products;
-
-  if (filters.minPrice) {
-    products = products.filter((p) => {
-      const val = parseInt(String(p.salePrice || p.price).replace(/,/g, ''));
-      return val >= filters.minPrice;
-    });
-  }
-  if (filters.maxPrice) {
-    products = products.filter((p) => {
-      const val = parseInt(String(p.salePrice || p.price).replace(/,/g, ''));
-      return val <= filters.maxPrice;
-    });
-  }
-
+  const result = await fetchProducts(params, { signal: options.signal, useCache: false });
   const meta = result.meta;
   return {
-    products,
-    total: meta.total || products.length,
+    products: result.products,
+    total: meta.total || result.products.length,
     totalPages: meta.last_page || 1,
     currentPage: meta.current_page || page,
   };
 };
 
 export const fetchSaleProducts = async () => {
-  const result = await fetchProducts({ suggested: true, per_page: 20 });
+  const result = await fetchProducts({ suggested: true, per_page: 20 }, { useCache: true });
   return { data: { products: result.products } };
 };
 
 export const fetchCategoryProducts = async (categoryId) => {
-  const result = await fetchProducts({ category_id: categoryId, per_page: 20 });
+  const result = await fetchProducts({ category_id: categoryId, per_page: 20 }, { useCache: true });
   return { data: result.products };
 };
 
 export const fetchAllProducts = async () => {
-  const result = await fetchProducts({ per_page: 50 });
+  const result = await fetchProducts({ per_page: 50 }, { useCache: true });
   return result.products;
 };
