@@ -27,6 +27,7 @@ const CheckoutPage = () => {
         successMessage,
         orderResult,
         handlePlaceOrder,
+        handleRetryPayment,
         handleApplyCoupon,
         formatPrice
     } = useCheckout();
@@ -48,28 +49,26 @@ const CheckoutPage = () => {
             <div className="bg-gray-50 min-h-screen py-20">
                 <div className="container mx-auto px-4 max-w-2xl">
                     <div className="bg-white rounded-2xl shadow-md p-8 text-center">
-                        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                        <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg className="w-10 h-10 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
                             </svg>
                         </div>
-                        <h2 className="text-2xl font-bold text-gray-800 mb-3">سفارش شما با موفقیت ثبت شد!</h2>
+                        <h2 className="text-2xl font-bold text-gray-800 mb-3">پرداخت هنوز انجام نشده است</h2>
                         <p className="text-gray-600 mb-2">شماره سفارش: <span className="font-bold text-[#64a39a]">{orderResult.order_number}</span></p>
-                        <p className="text-gray-500 mb-6">مبلغ قابل پرداخت: <span className="font-bold">{formatPrice(orderResult.total)}</span></p>
-
-                        {/* دکمه پرداخت */}
-                        {orderResult.gateway_url && (
-                            <button
-                                onClick={() => window.location.href = orderResult.gateway_url}
-                                className="w-full mb-3 bg-[#64a39a] text-white py-3 rounded-lg font-semibold hover:bg-[#4a7d73] transition-colors"
-                            >
-                                پرداخت آنلاین
-                            </button>
-                        )}
-
+                        <p className="text-gray-500 mb-4">مبلغ قابل پرداخت: <span className="font-bold">{formatPrice(orderResult.final_amount || orderResult.total)}</span></p>
+                        {error && <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-xl text-red-600">{error}</div>}
+                        <p className="text-gray-500 text-sm mb-6">برای تکمیل خرید باید به درگاه پرداخت آنلاین متصل شوید.</p>
+                        <button
+                            onClick={handleRetryPayment}
+                            disabled={submitting}
+                            className="w-full mb-3 bg-[#64a39a] text-white py-3 rounded-lg font-semibold hover:bg-[#4a7d73] transition-colors disabled:opacity-50"
+                        >
+                            {submitting ? 'در حال اتصال به درگاه...' : 'پرداخت آنلاین'}
+                        </button>
                         <div className="flex gap-4 justify-center">
                             <button onClick={() => router.push('/shop')} className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">ادامه خرید</button>
-                            <button onClick={() => router.push('/orders')} className="px-6 py-2 bg-[#64a39a] text-white rounded-lg hover:bg-[#4a7d73] transition-colors">مشاهده سفارشات</button>
+                            <button onClick={() => router.push('/orders')} className="px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors">مشاهده سفارشات</button>
                         </div>
                     </div>
                 </div>

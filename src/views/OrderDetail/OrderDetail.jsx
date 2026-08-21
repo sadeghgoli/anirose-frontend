@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { fetchOrderById, cancelOrder } from "../../api/services/orders.js";
+import { fetchOrderById, cancelOrder, startOrderPayment } from "../../api/services/orders.js";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import UserPanelLayout from "../../components/common/UserPanelLayout.jsx";
@@ -21,6 +21,7 @@ const OrderDetail = ({ id }) => {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   const [cancelling, setCancelling] = useState(false);
+  const [paying, setPaying] = useState(false);
 
   useEffect(() => {
     const load = async () => {
@@ -35,6 +36,17 @@ const OrderDetail = ({ id }) => {
     };
     load();
   }, [id]);
+
+  const handlePay = async () => {
+    if (!order?.id) return;
+    setPaying(true);
+    try {
+      await startOrderPayment(order.id, order.payment_status);
+    } catch (err) {
+      toast.error(err?.response?.data?.message || err?.message || "اتصال به درگاه ناموفق بود");
+      setPaying(false);
+    }
+  };
 
   const handleCancel = async () => {
     if (!window.confirm("آیا از لغو این سفارش اطمینان دارید؟")) return;
@@ -175,6 +187,19 @@ const OrderDetail = ({ id }) => {
               <span className="font-bold text-lg text-[#0c5505]">{formatPrice(order.final_amount)}</span>
             </div>
           </div>
+
+          {(order.can_pay || ((order.payment_status === "pending" || order.payment_status === "failed") && order.shipping_status !== "cancelled")) && (
+            <div className="text-center mb-4">
+              <button
+                onClick={handlePay}
+                disabled={paying}
+                className="inline-flex items-center gap-2 px-8 py-3 bg-[#0c5505] text-white rounded-xl hover:bg-[#0a4304] transition-colors disabled:opacity-70 font-medium"
+              >
+                <CreditCard size={18} />
+                {paying ? "در حال اتصال به درگاه..." : "پرداخت آنلاین"}
+              </button>
+            </div>
+          )}
 
           {(order.shipping_status === "pending_review" || order.shipping_status === "packaging") && (
             <div className="text-center mb-6">

@@ -7,7 +7,7 @@ import PaymentSuccess from "./paymentSuccess";
 import PaymentFailed from "./paymentFailed";
 
 const PaymentPage = () => {
-    const { loading, paymentResult, orderData, error, trackingCode } = usePayment();
+    const { loading, paymentResult, orderData, error, trackingCode, canRetry, retrying, retryPayment } = usePayment();
 
     if (loading) {
         return <PaymentLoading />;
@@ -18,6 +18,9 @@ const PaymentPage = () => {
             orderData={orderData}
             errorMessage={error || paymentResult?.message}
             trackingCode={trackingCode}
+            canRetry={canRetry}
+            retrying={retrying}
+            onRetry={retryPayment}
         />;
     }
 
@@ -28,8 +31,14 @@ const PaymentPage = () => {
         />;
     }
 
-    // return <PaymentFailed orderData={orderData} errorMessage={error || paymentResult?.message} trackingCode={trackingCode}/>;
-
+    return <PaymentFailed
+        orderData={orderData}
+        errorMessage={error || "اطلاعات پرداخت یافت نشد"}
+        trackingCode={trackingCode}
+        canRetry={canRetry}
+        retrying={retrying}
+        onRetry={retryPayment}
+    />;
 };
 
 export default PaymentPage;

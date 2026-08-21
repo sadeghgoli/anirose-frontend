@@ -56,9 +56,53 @@ const mapOrder = (order) => ({
     note: h.note,
     created_at: h.created_at,
   })),
+  can_pay: !!order.can_pay,
+  payment_ref_id: order.payment_ref_id || order.payment_transaction_id || '',
+  payment_date: order.payment_date || null,
+  tracking_code: order.order_number || '',
   created_at: order.created_at || '',
   updated_at: order.updated_at || '',
 });
+
+export const PENDING_PAYMENT_ORDER_KEY = 'pending_payment_order_id';
+
+const unwrapResource = (payload) => {
+  if (!payload || typeof payload !== 'object') return null;
+  if (payload.id || payload.order_id) return payload;
+  const nested = payload.data;
+  if (nested && typeof nested === 'object') {
+    if (nested.id || nested.order_id) return nested;
+    if (nested.data && typeof nested.data === 'object') return nested.data;
+  }
+  return nested || null;
+};
+
+export const extractOrderFromResponse = (response) => {
+  if (!response || typeof response !== 'object') return null;
+  const buckets = [response.data, response.data?.data, response];
+  for (const bucket of buckets) {
+    if (!bucket || typeof bucket !== 'object' || Array.isArray(bucket)) continue;
+    if (bucket.order_number || bucket.payment_status != null || bucket.final_amount != null) {
+      return bucket;
+    }
+  }
+  return unwrapResource(response);
+};
+
+export const rememberPendingPaymentOrder = (orderId) => {
+  if (typeof window === 'undefined' || !orderId) return;
+  localStorage.setItem(PENDING_PAYMENT_ORDER_KEY, String(orderId));
+};
+
+export const getPendingPaymentOrderId = () => {
+  if (typeof window === 'undefined') return null;
+  return localStorage.getItem(PENDING_PAYMENT_ORDER_KEY);
+};
+
+export const clearPendingPaymentOrder = () => {
+  if (typeof window === 'undefined') return;
+  localStorage.removeItem(PENDING_PAYMENT_ORDER_KEY);
+};
 
 export const fetchOrders = async () => {
   const response = await axiosInstance.get(API_ENDPOINTS.orders);
@@ -71,7 +115,8 @@ export const fetchOrders = async () => {
 
 export const fetchOrderById = async (id) => {
   const response = await axiosInstance.get(`${API_ENDPOINTS.orders}/${id}`);
-  return response.data?.data ? mapOrder(response.data.data) : null;
+  const order = unwrapResource(response.data);
+  return order ? mapOrder(order) : null;
 };
 
 export const placeOrder = async (orderData) => {
@@ -87,4 +132,44 @@ export const cancelOrder = async (id) => {
 export const initiateOrderPayment = async (orderId) => {
   const response = await axiosInstance.post(`${API_ENDPOINTS.orders}/${orderId}/pay`);
   return response.data;
+};
+
+export const retryOrderPayment = async (orderId) => {
+  const response = await axiosInstance.post(`${API_ENDPOINTS.orders}/${orderId}/pay/retry`);
+  return response.data;
+};
+
+export const fetchPaymentStatus = async (orderId) => {
+  const response = await axiosInstance.get(`${API_ENDPOINTS.orders}/${orderId}/payment-status`);
+  return response.data?.data || null;
+};
+
+export const findOrderIdByNumber = async (orderNumber) => {
+  if (!orderNumber) return null;
+  const { orders } = await fetchOrders();
+  const match = (orders || []).find((order) => order.order_number === orderNumber);
+  return match?.id || null;
+};
+
+export const startOrderPayment = async (orderId, paymentStatus) => {
+  if (!orderId) {
+    throw new Error('شناسه سفارش نامعتبر است');
+  }
+
+  const payRes = paymentStatus === 'failed'
+    ? await retryOrderPayment(orderId)
+    : await initiateOrderPayment(orderId);
+
+  const gatewayUrl = payRes?.data?.gateway_url;
+  if (!gatewayUrl) {
+    const error = new Error(payRes?.message || 'لینک درگاه پرداخت دریافت نشد');
+    error.response = { data: payRes };
+    throw error;
+  }
+
+  rememberPendingPaymentOrder(orderId);
+  if (typeof window !== 'undefined') {
+    window.location.assign(gatewayUrl);
+  }
+  return payRes;
 };

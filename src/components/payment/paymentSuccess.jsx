@@ -14,9 +14,9 @@ const PaymentSuccess = ({ orderData, trackingCode }) => {
     };
 
     const copyOrderCode = () => {
-        const code = orderData?.tracking_code;
+        const code = orderData?.order_number || trackingCode;
         if (code) {
-            navigator.clipboard.writeText(code);
+            navigator.clipboard.writeText(String(code));
             alert("کد سفارش کپی شد: " + code);
         }
     };
@@ -59,7 +59,7 @@ const PaymentSuccess = ({ orderData, trackingCode }) => {
                             {/* کد سفارش */}
                             <div className="bg-gray-50 rounded-lg p-4 text-center mb-6">
                                 <span className="text-gray-600 ml-2">کد سفارش:</span>
-                                <span className="text-[#e0a96d] font-bold text-lg mx-2">{trackingCode || orderData?.tracking_code}</span>
+                                <span className="text-[#e0a96d] font-bold text-lg mx-2">{trackingCode || orderData?.order_number}</span>
                                 <button
                                     onClick={copyOrderCode}
                                     className="bg-[#e0a96d] text-white px-4 py-1 rounded-lg text-sm hover:bg-[#c9954d] transition inline-flex items-center gap-1"
@@ -126,7 +126,7 @@ const PaymentSuccess = ({ orderData, trackingCode }) => {
                                 {/* دکمه‌های اقدام */}
                                 <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
                                     <button
-                                        onClick={() => router.push(`/track-order?code=${orderData?.order_id}`)}
+                                        onClick={() => router.push(orderData?.id ? `/orders/${orderData.id}` : "/orders")}
                                         className="bg-[#e0a96d] text-white px-6 py-3 rounded-lg hover:bg-[#c9954d] transition text-center"
                                     >
                                         <Truck size={18} className="inline ml-2" />

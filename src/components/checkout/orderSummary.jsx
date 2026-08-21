@@ -147,9 +147,9 @@ const OrderSummary = ({ cart, updating, formatPrice, onSubmitOrder, submitting }
                     {submitting ? (
                         <>
                             <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                            در حال پردازش...
+                            در حال اتصال به درگاه...
                         </>
-                    ) : 'ثبت سفارش'}
+                    ) : 'پرداخت آنلاین'}
                 </button>
             </div>
         </div>

@@ -1,19 +1,43 @@
 'use client'
-import { useState, useEffect, useRef } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
 import { clearCart } from "../api/services/cart.js";
+import {
+    fetchOrderById,
+    fetchPaymentStatus,
+    findOrderIdByNumber,
+    getPendingPaymentOrderId,
+    clearPendingPaymentOrder,
+    startOrderPayment,
+} from "../api/services/orders.js";
 
 export const usePayment = () => {
     const searchParams = useSearchParams();
-    const router = useRouter();
 
     const [loading, setLoading] = useState(true);
     const [paymentResult, setPaymentResult] = useState(null);
     const [orderData, setOrderData] = useState(null);
     const [error, setError] = useState(null);
     const [trackingCode, setTrackingCode] = useState(null);
+    const [retrying, setRetrying] = useState(false);
+    const [resolvedOrderId, setResolvedOrderId] = useState(null);
 
     const hasRun = useRef(false);
+
+    const resolveOrderId = useCallback(async () => {
+        const fromQuery = searchParams.get("order_id");
+        if (fromQuery) return fromQuery;
+
+        const stored = getPendingPaymentOrderId();
+        if (stored) return stored;
+
+        const orderNumber = searchParams.get("order_number");
+        if (orderNumber) {
+            return findOrderIdByNumber(orderNumber);
+        }
+
+        return null;
+    }, [searchParams]);
 
     useEffect(() => {
         if (hasRun.current) return;
@@ -21,81 +45,83 @@ export const usePayment = () => {
 
         const verifyPaymentStatus = async () => {
             setLoading(true);
+            setError(null);
 
-            const authority = searchParams.get("Authority");
-            const status = searchParams.get("Status");
-            const orderId = searchParams.get("order_id");
-            const tracking = searchParams.get("tracking");
-
-            if (tracking) {
-                setTrackingCode(tracking);
-            }
-
-            if (!authority && !orderId && !tracking) {
-                const cachedResult = sessionStorage.getItem("payment_result");
-                if (cachedResult) {
-                    const parsed = JSON.parse(cachedResult);
-                    setPaymentResult(parsed);
-                    if (parsed.data) {
-                        setOrderData(parsed.data);
-                    } else {
-                        setError(parsed.message);
-                    }
+            try {
+                const orderId = await resolveOrderId();
+                if (!orderId) {
+                    setError("اطلاعات پرداخت یافت نشد");
+                    setPaymentResult({ status: "nok" });
                     setLoading(false);
                     return;
                 }
-                setError("اطلاعات پرداخت یافت نشد");
-                setLoading(false);
-                return;
-            }
 
-            try {
-                if (status === "OK" || authority) {
-                    const result = {
+                setResolvedOrderId(orderId);
+
+                const [statusData, order] = await Promise.all([
+                    fetchPaymentStatus(orderId),
+                    fetchOrderById(orderId),
+                ]);
+
+                if (order) {
+                    setOrderData(order);
+                    setTrackingCode(order.order_number || statusData?.ref_id || null);
+                }
+
+                const paymentStatus = statusData?.payment_status || order?.payment_status;
+                const callbackMessage = searchParams.get("message");
+
+                if (paymentStatus === "paid") {
+                    clearPendingPaymentOrder();
+                    clearCart().catch(() => {});
+                    setPaymentResult({
                         status: "ok",
                         code: 100,
-                        message: "پرداخت با موفقیت انجام شد",
-                        data: {
-                            order_id: orderId || "",
-                            tracking_code: tracking || "",
-                        },
-                    };
-
-                    sessionStorage.setItem("payment_result", JSON.stringify(result));
-                    setPaymentResult(result);
-
-                    if (result.data) {
-                        setOrderData(result.data);
-                        if (result.data.tracking_code) {
-                            setTrackingCode(result.data.tracking_code);
-                        }
-                        clearCart();
-                    }
-                } else {
-                    setPaymentResult({
-                        status: "nok",
-                        code: 101,
-                        message: "پرداخت ناموفق بود. لطفاً مجدداً تلاش کنید.",
+                        message: callbackMessage || statusData?.payment_status_label || "پرداخت با موفقیت انجام شد",
+                        data: order,
                     });
-                    setError("پرداخت ناموفق بود");
+                    return;
                 }
 
-                const newParams = new URLSearchParams();
-                if (tracking) {
-                    newParams.set("tracking", tracking);
-                }
-                router.replace(`/payment${newParams.toString() ? `?${newParams.toString()}` : ''}`);
-
+                setPaymentResult({
+                    status: "nok",
+                    code: 101,
+                    message: callbackMessage || statusData?.payment_status_label || "پرداخت ناموفق بود",
+                    data: order,
+                });
+                setError(
+                    callbackMessage
+                    || (paymentStatus === "pending" ? "پرداخت تکمیل نشد. در صورت تمایل دوباره تلاش کنید." : "پرداخت ناموفق بود. لطفاً مجدداً تلاش کنید.")
+                );
             } catch (err) {
-                console.error("❌ Payment verification error:", err);
-                setError("خطا در تأیید پرداخت");
+                setPaymentResult({ status: "nok", code: 101 });
+                setError(err?.response?.data?.message || "خطا در تأیید پرداخت");
             } finally {
                 setLoading(false);
             }
         };
 
         verifyPaymentStatus();
-    }, [router, searchParams]);
+    }, [resolveOrderId, searchParams]);
 
-    return { loading, paymentResult, orderData, error, trackingCode };
+    const retryPayment = useCallback(async () => {
+        const orderId = resolvedOrderId || orderData?.id || getPendingPaymentOrderId();
+        if (!orderId) {
+            setError("شناسه سفارش برای پرداخت مجدد یافت نشد");
+            return;
+        }
+
+        setRetrying(true);
+        setError(null);
+        try {
+            await startOrderPayment(orderId, orderData?.payment_status);
+        } catch (err) {
+            setError(err?.response?.data?.message || err?.message || "اتصال به درگاه ناموفق بود");
+            setRetrying(false);
+        }
+    }, [orderData, resolvedOrderId]);
+
+    const canRetry = paymentResult?.status === "nok" && !!(resolvedOrderId || orderData?.id);
+
+    return { loading, paymentResult, orderData, error, trackingCode, canRetry, retrying, retryPayment };
 };

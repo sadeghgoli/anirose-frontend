@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { XCircle, Home, ShoppingBag, Copy } from "react-feather";
 
-const PaymentFailed = ({ orderData, errorMessage, trackingCode }) => {
+const PaymentFailed = ({ orderData, errorMessage, trackingCode, canRetry = false, retrying = false, onRetry }) => {
   const router = useRouter();
   const errorCircleRef = useRef(null);
 
@@ -182,6 +182,15 @@ const PaymentFailed = ({ orderData, errorMessage, trackingCode }) => {
 
                 {/* دکمه‌های اقدام */}
                 <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                  {canRetry && (
+                    <button
+                      onClick={onRetry}
+                      disabled={retrying}
+                      className="bg-[#64a39a] text-white px-6 py-3 rounded-lg hover:bg-[#4a7d73] transition text-center disabled:opacity-50"
+                    >
+                      {retrying ? "در حال اتصال به درگاه..." : "تلاش مجدد پرداخت"}
+                    </button>
+                  )}
                   <button
                     onClick={() => router.push("/cart")}
                     className="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition text-center"

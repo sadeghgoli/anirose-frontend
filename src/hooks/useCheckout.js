@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { fetchCart, applyCoupon, removeCoupon, selectShipping, checkoutCart } from '../api/services/cart.js';
 import { fetchShippingMethods } from '../api/services/shipping.js';
 import { fetchAddresses } from '../api/services/addresses.js';
-import { initiateOrderPayment } from '../api/services/orders.js';
+import { extractOrderFromResponse, startOrderPayment } from '../api/services/orders.js';
 
 export const useCheckout = () => {
     const [cart, setCart] = useState(null);
@@ -130,46 +130,60 @@ export const useCheckout = () => {
         setSubmitting(true);
         setError(null);
 
+        let redirected = false;
         try {
             const response = await checkoutCart({ address_id, notes });
-            if (response?.message) {
-                const data = response.data || response;
-                const orderId = data.id || data.order_id;
+            const order = extractOrderFromResponse(response);
+            const orderId = order?.id || order?.order_id;
 
-                if (orderId) {
-                    try {
-                        const payRes = await initiateOrderPayment(orderId);
-                        const gatewayUrl = payRes?.data?.gateway_url;
-                        if (gatewayUrl) {
-                            if (typeof window !== 'undefined') {
-                                localStorage.setItem('pending_payment_order_id', String(orderId));
-                            }
-                            window.location.href = gatewayUrl;
-                            return { success: true, data: { ...data, gateway_url: gatewayUrl } };
-                        }
-                    } catch (payErr) {
-                        const payMsg = payErr?.response?.data?.message || 'سفارش ثبت شد اما اتصال به درگاه ناموفق بود';
-                        setOrderResult(data);
-                        setError(payMsg);
-                        return { success: false, error: payMsg, data };
-                    }
-                }
-
-                setOrderResult(data);
-                setSuccessMessage(response.message);
-                return { success: true, data };
+            if (!orderId) {
+                const msg = "سفارش ثبت شد اما شناسه سفارش دریافت نشد";
+                setError(msg);
+                return { success: false, error: msg };
             }
 
-            setError("خطا در ثبت سفارش");
-            return { success: false, error: "خطا در ثبت سفارش" };
+            try {
+                await startOrderPayment(orderId, order.payment_status);
+                redirected = true;
+                return { success: true, redirected: true, data: order };
+            } catch (payErr) {
+                const payMsg = payErr?.response?.data?.message || payErr?.message || 'سفارش ثبت شد اما اتصال به درگاه ناموفق بود';
+                setOrderResult(order);
+                setError(payMsg);
+                return { success: false, error: payMsg, data: order };
+            }
         } catch (err) {
             const msg = err?.response?.data?.message || "خطا در ثبت سفارش";
             setError(msg);
             return { success: false, error: msg };
         } finally {
-            setSubmitting(false);
+            if (!redirected) {
+                setSubmitting(false);
+            }
         }
     }, []);
+
+    const handleRetryPayment = useCallback(async () => {
+        if (!orderResult?.id) {
+            return { success: false, error: "شناسه سفارش نامعتبر است" };
+        }
+        setSubmitting(true);
+        setError(null);
+        let redirected = false;
+        try {
+            await startOrderPayment(orderResult.id, orderResult.payment_status);
+            redirected = true;
+            return { success: true, redirected: true };
+        } catch (err) {
+            const msg = err?.response?.data?.message || err?.message || "اتصال به درگاه ناموفق بود";
+            setError(msg);
+            return { success: false, error: msg };
+        } finally {
+            if (!redirected) {
+                setSubmitting(false);
+            }
+        }
+    }, [orderResult]);
 
     const formatPrice = (price) => (price || 0).toLocaleString() + ' تومان';
 
@@ -190,6 +204,7 @@ export const useCheckout = () => {
         handleRemoveCoupon,
         handleSelectShipping,
         handlePlaceOrder,
+        handleRetryPayment,
         refreshCart,
         formatPrice
     };
