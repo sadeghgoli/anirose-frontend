@@ -1,7 +1,7 @@
 'use client'
-// src/components/common/Shop/ShopPage.jsx
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useShopFilters } from '../../hooks/useShopFilters';
+import { SORT_OPTIONS } from '../../utils/shopQuery';
 import ShopSidebar from './shopSidebar';
 import ProductGrid from './productGrid';
 import Pagination from './pagination';
@@ -11,14 +11,25 @@ const ShopPage = () => {
         products,
         loading,
         totalPages,
+        totalItems,
         currentPage,
         filters,
         categories,
         applyFilters,
-        changePage,
+        changeSortBy,
         removeFilter,
         clearAllFilters,
+        buildPageHref,
     } = useShopFilters(12);
+
+    const skipScroll = useRef(true);
+    useEffect(() => {
+        if (skipScroll.current) {
+            skipScroll.current = false;
+            return;
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [currentPage]);
 
     return (
         <div className="bg-gray-50 min-h-screen">
@@ -38,9 +49,30 @@ const ShopPage = () => {
                         onRemoveFilter={removeFilter}
                     />
                     <div className="flex-1">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+                            <p className="text-sm text-gray-500">
+                                {loading ? 'در حال بارگذاری...' : `${totalItems.toLocaleString('fa-IR')} محصول`}
+                            </p>
+                            <label className="flex items-center gap-2 text-sm text-gray-600">
+                                <span>مرتب‌سازی</span>
+                                <select
+                                    value={filters.sortBy}
+                                    onChange={(e) => changeSortBy(e.target.value)}
+                                    className="border border-gray-300 rounded-lg px-3 py-2 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#0C5505]/20 focus:border-[#0C5505]"
+                                >
+                                    {SORT_OPTIONS.map((option) => (
+                                        <option key={option.value} value={option.value}>{option.label}</option>
+                                    ))}
+                                </select>
+                            </label>
+                        </div>
                         <ProductGrid products={products || []} loading={loading} categories={categories} />
-                        {!loading && totalPages > 1 && (
-                            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={changePage} />
+                        {totalPages > 1 && (
+                            <Pagination
+                                currentPage={currentPage}
+                                totalPages={totalPages}
+                                buildHref={buildPageHref}
+                            />
                         )}
                     </div>
                 </div>

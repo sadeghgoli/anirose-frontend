@@ -237,7 +237,7 @@ const CategorySlider = memo(({ category, index }) => {
           <div className="w-full lg:w-[22%]">
             <div className="relative w-full mx-auto lg:mx-0 h-auto lg:h-full">
               <Link
-                href={`/shop?category=${category.id}&name=${encodeURIComponent(category.name.replace(/\s+/g, '-'))}`}
+                href={`/shop?category=${category.id}`}
                 className="relative group block w-full focus:outline-none focus:ring-2 focus:ring-[#0C5505] focus:ring-offset-2 rounded-xl"
               >
                 <Image

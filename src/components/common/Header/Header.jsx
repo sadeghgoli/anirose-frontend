@@ -45,7 +45,7 @@ const Header = () => {
                 const headerMenu = categories.slice(0, 6).map((cat) => ({
                   id: cat.id,
                   title: cat.name,
-                  link: `/shop?category=${cat.id}&name=${encodeURIComponent(cat.name.replace(/\s+/g, '-'))}`,
+                  link: `/shop?category=${cat.id}`,
                 }));
                 setHeaderData((prev) => ({
                   ...prev,

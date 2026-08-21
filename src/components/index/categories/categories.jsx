@@ -105,7 +105,7 @@ const Categories = () => {
                     {categories.map((category) => (
                         <SwiperSlide key={category.id}>
                             <Link
-                                href={`/shop?category=${category.id}&name=${encodeURIComponent(category.name.replace(/\s+/g, '-'))}`}
+                                href={`/shop?category=${category.id}`}
                                 className="block group"
                                 prefetch={false}
                             >

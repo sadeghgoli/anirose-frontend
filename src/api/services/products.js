@@ -54,6 +54,19 @@ const mapProduct = (p) => {
   };
 };
 
+const serializeProductParams = (params) => {
+  const search = new URLSearchParams();
+  Object.entries(params).forEach(([key, value]) => {
+    if (value == null || value === '') return;
+    if (Array.isArray(value)) {
+      value.forEach((item) => search.append(`${key}[]`, String(item)));
+      return;
+    }
+    search.set(key, String(value));
+  });
+  return search;
+};
+
 export const fetchProducts = async (params = {}, options = {}) => {
   const queryParams = {};
   if (params.page) queryParams.page = params.page;
@@ -65,14 +78,19 @@ export const fetchProducts = async (params = {}, options = {}) => {
   if (params.min_price != null) queryParams.min_price = params.min_price;
   if (params.max_price != null) queryParams.max_price = params.max_price;
 
-  const key = `products_${JSON.stringify(queryParams)}`;
-  const data = await fetchWithCache(key, async () => {
-    const response = await axiosInstance.get(API_ENDPOINTS.products, {
-      params: queryParams,
+  const load = async () => {
+    const qs = serializeProductParams(queryParams).toString();
+    const url = qs ? `${API_ENDPOINTS.products}?${qs}` : API_ENDPOINTS.products;
+    const response = await axiosInstance.get(url, {
       signal: options.signal,
     });
     return response.data;
-  }, CACHE_DURATION);
+  };
+
+  const key = `products_${JSON.stringify(queryParams)}`;
+  const data = options.signal
+    ? await load()
+    : await fetchWithCache(key, load, CACHE_DURATION);
 
   const rows = unwrapCollection(data?.data);
   const meta = data?.meta || data?.data?.meta || {
