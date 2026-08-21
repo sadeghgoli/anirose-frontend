@@ -1,0 +1,749 @@
+{
+  "status": "success",
+  "data": {
+    "products": [
+      {
+        "id": 1,
+        "name": "گل محمدی ممتاز",
+        "sku": "PR-10001",
+        "brandId": 1,
+        "price": "280,000",
+        "categoryId": 1,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/1",
+        "sale": true,
+        "stock": 25,
+        "rating": 4.8,
+        "reviewCount": 156,
+        "description": "گل محمدی ممتاز با عطر و طعم بی‌نظیر، مناسب برای تهیه دمنوش و گلاب گیری. این محصول به صورت کاملاً ارگانیک و بدون استفاده از کودهای شیمیایی پرورش یافته است.",
+        "specifications": {
+          "weight": "۵۰۰ گرم",
+          "type": "گل محمدی خشک شده",
+          "origin": "شهرضا، کاشان",
+          "harvestDate": "۱۴۰۲/۰۴/۱۵",
+          "expiryDate": "۱۴۰۴/۰۴/۱۵"
+        },
+        "features": [
+          "کاهش استرس و اضطراب روزانه",
+          "بهبود کیفیت خواب و رفع بی‌خوابی",
+          "تقویت سیستم عصبی",
+          "ضد افسردگی طبیعی",
+          "۱۰۰% طبیعی و ارگانیک"
+        ],
+        "howToUse": "یک قاشق غذاخوری از گل محمدی را در یک لیوان آب جوش ریخته، به مدت ۱۰-۱۵ دقیقه دم کنید. سپس صاف کرده و میل نمایید."
+      },
+      {
+        "id": 2,
+        "name": "بلوبری خشک",
+        "sku": "PR-10002",
+        "brandId": 1,
+        "price": "195,000",
+        "salePrice": "149,000",
+        "categoryId": 2,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/2",
+        "sale": true,
+        "stock": 42,
+        "rating": 4.6,
+        "reviewCount": 89,
+        "description": "بلوبری خشک شده با کیفیت عالی، سرشار از آنتی‌اکسیدان و ویتامین C. مناسب برای مصرف روزانه، اسموتی و دسرها.",
+        "specifications": {
+          "weight": "۴۰۰ گرم",
+          "type": "بلوبری خشک شده",
+          "origin": "شمال ایران",
+          "harvestDate": "۱۴۰۲/۰۵/۲۰",
+          "expiryDate": "۱۴۰۴/۰۵/۲۰"
+        },
+        "features": [
+          "سرشار از آنتی‌اکسیدان",
+          "تقویت سیستم ایمنی بدن",
+          "بهبود سلامت چشم",
+          "کاهش التهاب",
+          "مناسب برای رژیم غذایی سالم"
+        ],
+        "howToUse": "مصرف روزانه به مقدار ۳۰-۵۰ گرم به عنوان میان وعده، اضافه کردن به اسموتی، ماست، سالاد و دسرها."
+      },
+      {
+        "id": 3,
+        "name": "آویشن کوهی",
+        "sku": "PR-10003",
+        "brandId": 1,
+        "price": "120,000",
+        "salePrice": "89,000",
+        "categoryId": 3,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/3",
+        "sale": true,
+        "stock": 18,
+        "rating": 4.9,
+        "reviewCount": 203,
+        "description": "آویشن کوهی معطر و خالص، مناسب برای دمنوش، ادویه و مصارف دارویی. ضد سرفه، ضد میکروب و تقویت کننده سیستم ایمنی.",
+        "specifications": {
+          "weight": "۳۰۰ گرم",
+          "type": "آویشن کوهی خشک",
+          "origin": "کرمانشاه",
+          "harvestDate": "۱۴۰۲/۰۳/۱۰",
+          "expiryDate": "۱۴۰۴/۰۳/۱۰"
+        },
+        "features": [
+          "ضد سرفه و خلط‌آور قوی",
+          "ضد میکروب و ضد قارچ",
+          "تقویت کننده سیستم ایمنی",
+          "کمک به هضم غذا",
+          "ضد اسپاسم و آرامبخش عضلات"
+        ],
+        "howToUse": "یک قاشق چایخوری آویشن را در یک لیوان آب جوش به مدت ۱۰ دقیقه دم کنید. روزی ۲-۳ لیوان میل شود."
+      },
+      {
+        "id": 4,
+        "name": "زیره سبز",
+        "sku": "PR-10004",
+        "brandId": 1,
+        "price": "98,000",
+        "salePrice": "75,000",
+        "categoryId": 1,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/4",
+        "sale": true,
+        "stock": 35,
+        "rating": 4.5,
+        "reviewCount": 67,
+        "description": "زیره سبز درجه یک، عطردهنده و طعم‌دهنده طبیعی برای انواع غذاها. کمک به هضم غذا و کاهش نفخ.",
+        "specifications": {
+          "weight": "۵۰۰ گرم",
+          "type": "زیره سبز",
+          "origin": "خراسان جنوبی",
+          "harvestDate": "۱۴۰۲/۰۶/۰۱",
+          "expiryDate": "۱۴۰۴/۰۶/۰۱"
+        },
+        "features": [
+          "کمک به هضم سریع غذا",
+          "کاهش نفخ و گاز معده",
+          "ضد عفونی کننده طبیعی",
+          "تقویت شیردهی مادران",
+          "طعم‌دهنده عالی برای غذاها"
+        ],
+        "howToUse": "به مقدار لازم به عنوان ادویه در غذاها استفاده شود. همچنین می‌توان دمنوش زیره تهیه کرد."
+      },
+      {
+        "id": 5,
+        "name": "گل مریم عطری",
+        "sku": "PR-10005",
+        "brandId": 1,
+        "price": "340,000",
+        "salePrice": "279,000",
+        "categoryId": 2,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/5",
+        "sale": true,
+        "stock": 12,
+        "rating": 4.7,
+        "reviewCount": 112,
+        "description": "گل مریم عطری با رایحه‌ای دلنشین و ماندگار، مناسب برای دمنوش‌های آرامش‌بخش و عطراگی.",
+        "specifications": {
+          "weight": "۲۰۰ گرم",
+          "type": "گل مریم خشک",
+          "origin": "مازندران",
+          "harvestDate": "۱۴۰۲/۰۲/۲۵",
+          "expiryDate": "۱۴۰۴/۰۲/۲۵"
+        },
+        "features": [
+          "ایجاد آرامش و کاهش استرس",
+          "بهبود کیفیت خواب",
+          "تقویت قلب و اعصاب",
+          "ضد افسردگی طبیعی",
+          "رایحه‌ای دلنشین و ماندگار"
+        ],
+        "howToUse": "یک قاشق غذاخوری گل مریم را در یک لیوان آب جوش به مدت ۱۰-۱۵ دقیقه دم کنید."
+      },
+      {
+        "id": 6,
+        "name": "زعفران نگین",
+        "sku": "PR-10006",
+        "brandId": 1,
+        "price": "450,000",
+        "salePrice": "399,000",
+        "categoryId": 1,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/6",
+        "sale": true,
+        "stock": 8,
+        "rating": 5.0,
+        "reviewCount": 245,
+        "description": "زعفران نگین درجه یک با عطر و رنگ فوق‌العاده، محصول ممتاز قائنات. مناسب برای مصارف مجلسی و دارویی.",
+        "specifications": {
+          "weight": "۱۰ گرم",
+          "type": "زعفران نگین",
+          "origin": "قائنات، خراسان جنوبی",
+          "harvestDate": "۱۴۰۲/۰۷/۱۵",
+          "expiryDate": "۱۴۰۶/۰۷/۱۵"
+        },
+        "features": [
+          "افزایش شادی و نشاط",
+          "تقویت حافظه و تمرکز",
+          "بهبود عملکرد قلب",
+          "ضد افسردگی طبیعی",
+          "رنگ و عطر فوق‌العاده"
+        ],
+        "howToUse": "چند رشته زعفران را در یخ خرد کرده، در آب جوش دم کنید و به غذا، برنج یا دمنوش اضافه نمایید."
+      },
+      {
+        "id": 7,
+        "name": "چوب دارچین",
+        "sku": "PR-10007",
+        "brandId": 1,
+        "price": "85,000",
+        "salePrice": "69,000",
+        "categoryId": 3,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/7",
+        "sale": true,
+        "stock": 55,
+        "rating": 4.4,
+        "reviewCount": 78,
+        "description": "چوب دارچین خالص و خوش عطر، مناسب برای دمنوش، چای و انواع شیرینی‌ها. کمک به تنظیم قند خون.",
+        "specifications": {
+          "weight": "۲۰۰ گرم",
+          "type": "چوب دارچین",
+          "origin": "سریلانکا",
+          "harvestDate": "۱۴۰۲/۰۸/۰۱",
+          "expiryDate": "۱۴۰۵/۰۸/۰۱"
+        },
+        "features": [
+          "تنظیم قند خون",
+          "کاهش کلسترول بد",
+          "ضد التهاب طبیعی",
+          "تقویت سیستم ایمنی",
+          "بهبود گردش خون"
+        ],
+        "howToUse": "یک تکه چوب دارچین را در چای یا دمنوش به مدت ۵-۱۰ دقیقه دم کنید."
+      },
+      {
+        "id": 8,
+        "name": "توت فرنگی خشک",
+        "sku": "PR-10008",
+        "brandId": 1,
+        "price": "210,000",
+        "salePrice": "179,000",
+        "categoryId": 2,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/8",
+        "sale": true,
+        "stock": 30,
+        "rating": 4.6,
+        "reviewCount": 94,
+        "description": "توت فرنگی خشک شده طبیعی، بدون افزودنی و شکر. مناسب برای اسموتی، صبحانه و میان وعده سالم.",
+        "specifications": {
+          "weight": "۳۵۰ گرم",
+          "type": "توت فرنگی خشک",
+          "origin": "کردستان",
+          "harvestDate": "۱۴۰۲/۰۴/۱۰",
+          "expiryDate": "۱۴۰۴/۰۴/۱۰"
+        },
+        "features": [
+          "سرشار از ویتامین C",
+          "تقویت سیستم ایمنی",
+          "بهبود سلامت پوست",
+          "مناسب برای رژیم لاغری",
+          "بدون شکر افزوده"
+        ],
+        "howToUse": "مصرف به عنوان میان وعده، اضافه به صبحانه، اسموتی، ماست و سالاد."
+      },
+      {
+        "id": 9,
+        "name": "هل سبز",
+        "sku": "PR-10009",
+        "brandId": 1,
+        "price": "320,000",
+        "salePrice": "275,000",
+        "categoryId": 3,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/9",
+        "sale": true,
+        "stock": 22,
+        "rating": 4.8,
+        "reviewCount": 134,
+        "description": "هل سبز درجه یک با عطر و طعم بی‌نظیر، مناسب برای دمنوش، چای، شیرینی و قهوه.",
+        "specifications": {
+          "weight": "۱۰۰ گرم",
+          "type": "هل سبز",
+          "origin": "سریلانکا",
+          "harvestDate": "۱۴۰۲/۰۹/۰۵",
+          "expiryDate": "۱۴۰۵/۰۹/۰۵"
+        },
+        "features": [
+          "خوشبو کننده دهان و دستگاه گوارش",
+          "کمک به هضم غذا",
+          "رفع بوی بد دهان",
+          "ضد نفخ",
+          "طعم‌دهنده عالی برای چای و قهوه"
+        ],
+        "howToUse": "هل را کمی بکوبید و به چای، قهوه یا دمنوش اضافه کنید. همچنین در شیرینی‌پزی کاربرد دارد."
+      },
+      {
+        "id": 10,
+        "name": "میخک",
+        "sku": "PR-10010",
+        "brandId": 1,
+        "price": "150,000",
+        "salePrice": "125,000",
+        "categoryId": 3,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/10",
+        "sale": true,
+        "stock": 40,
+        "rating": 4.5,
+        "reviewCount": 56,
+        "description": "میخک درجه یک با عطر تند و قوی، مناسب برای دمنوش، ادویه و مصارف دارویی.",
+        "specifications": {
+          "weight": "۱۵۰ گرم",
+          "type": "میخک",
+          "origin": "اندونزی",
+          "harvestDate": "۱۴۰۲/۰۸/۲۰",
+          "expiryDate": "۱۴۰۵/۰۸/۲۰"
+        },
+        "features": [
+          "ضد درد دندان",
+          "بهبود هضم غذا",
+          "ضد میکروب و ضد قارچ",
+          "رفع سرفه",
+          "طعم‌دهنده قوی"
+        ],
+        "howToUse": "۲-۳ عدد میخک را در چای یا دمنوش دم کنید. همچنین به عنوان ادویه در غذاها استفاده می‌شود."
+      },
+      {
+        "id": 11,
+        "name": "گل گاوزبان",
+        "sku": "PR-10011",
+        "brandId": 1,
+        "price": "110,000",
+        "salePrice": "89,000",
+        "categoryId": 1,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/11",
+        "sale": true,
+        "stock": 28,
+        "rating": 4.7,
+        "reviewCount": 178,
+        "description": "گل گاوزبان معطر و خالص، مناسب برای دمنوش آرامش‌بخش و تقویت قلب و اعصاب.",
+        "specifications": {
+          "weight": "۲۵۰ گرم",
+          "type": "گل گاوزبان خشک",
+          "origin": "اصفهان",
+          "harvestDate": "۱۴۰۲/۰۵/۱۰",
+          "expiryDate": "۱۴۰۴/۰۵/۱۰"
+        },
+        "features": [
+          "آرامش‌بخش و کاهش استرس",
+          "تقویت قلب و اعصاب",
+          "رفع بی‌خوابی",
+          "ضد افسردگی",
+          "طعم و عطر دلنشین"
+        ],
+        "howToUse": "یک قاشق غذاخوری گل گاوزبان را در یک لیوان آب جوش به مدت ۱۰-۱۵ دقیقه دم کنید."
+      },
+      {
+        "id": 12,
+        "name": "انبه خشک",
+        "sku": "PR-10012",
+        "brandId": 1,
+        "price": "230,000",
+        "salePrice": "195,000",
+        "categoryId": 2,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/12",
+        "sale": true,
+        "stock": 33,
+        "rating": 4.5,
+        "reviewCount": 72,
+        "description": "انبه خشک طبیعی، شیرین و خوشمزه. مناسب برای میان وعده، اسموتی و دسرها.",
+        "specifications": {
+          "weight": "۴۰۰ گرم",
+          "type": "انبه خشک",
+          "origin": "سیستان و بلوچستان",
+          "harvestDate": "۱۴۰۲/۰۶/۱۵",
+          "expiryDate": "۱۴۰۴/۰۶/۱۵"
+        },
+        "features": [
+          "سرشار از ویتامین A و C",
+          "تقویت سیستم ایمنی",
+          "بهبود سلامت پوست و مو",
+          "منبع انرژی طبیعی",
+          "بدون شکر افزوده"
+        ],
+        "howToUse": "مصرف به عنوان میان وعده، اضافه به اسموتی، ماست و سالاد میوه."
+      },
+      {
+        "id": 13,
+        "name": "رزماری",
+        "sku": "PR-10013",
+        "brandId": 1,
+        "price": "130,000",
+        "salePrice": "105,000",
+        "categoryId": 3,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/13",
+        "sale": true,
+        "stock": 38,
+        "rating": 4.6,
+        "reviewCount": 95,
+        "description": "رزماری معطر و خالص، مناسب برای دمنوش، ادویه و مصارف دارویی. تقویت حافظه و تمرکز.",
+        "specifications": {
+          "weight": "۲۰۰ گرم",
+          "type": "رزماری خشک",
+          "origin": "البرز",
+          "harvestDate": "۱۴۰۲/۰۴/۲۰",
+          "expiryDate": "۱۴۰۴/۰۴/۲۰"
+        },
+        "features": [
+          "تقویت حافظه و تمرکز",
+          "بهبود گردش خون",
+          "کاهش استرس و خستگی",
+          "ضد التهاب طبیعی",
+          "تقویت سیستم ایمنی"
+        ],
+        "howToUse": "یک قاشق چایخوری رزماری را در آب جوش به مدت ۵-۱۰ دقیقه دم کنید."
+      },
+      {
+        "id": 14,
+        "name": "بابونه",
+        "sku": "PR-10014",
+        "brandId": 1,
+        "price": "95,000",
+        "salePrice": "79,000",
+        "categoryId": 1,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/14",
+        "sale": true,
+        "stock": 45,
+        "rating": 4.8,
+        "reviewCount": 189,
+        "description": "بابونه کوهی خالص و معطر، مناسب برای دمنوش آرامش‌بخش و بهبود مشکلات گوارشی.",
+        "specifications": {
+          "weight": "۲۰۰ گرم",
+          "type": "بابونه خشک",
+          "origin": "شیراز",
+          "harvestDate": "۱۴۰۲/۰۳/۲۵",
+          "expiryDate": "۱۴۰۴/۰۳/۲۵"
+        },
+        "features": [
+          "کاهش استرس و اضطراب",
+          "بهبود کیفیت خواب",
+          "رفع مشکلات گوارشی",
+          "ضد التهاب طبیعی",
+          "تقویت سیستم ایمنی"
+        ],
+        "howToUse": "یک قاشق غذاخوری بابونه را در یک لیوان آب جوش به مدت ۱۰ دقیقه دم کنید."
+      },
+      {
+        "id": 15,
+        "name": "کیوی خشک",
+        "sku": "PR-10015",
+        "brandId": 1,
+        "price": "185,000",
+        "salePrice": "159,000",
+        "categoryId": 2,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/15",
+        "sale": true,
+        "stock": 27,
+        "rating": 4.5,
+        "reviewCount": 63,
+        "description": "کیوی خشک طبیعی، ترش و شیرین. سرشار از ویتامین C و فیبر. مناسب برای میان وعده سالم.",
+        "specifications": {
+          "weight": "۳۰۰ گرم",
+          "type": "کیوی خشک",
+          "origin": "مازندران",
+          "harvestDate": "۱۴۰۲/۰۷/۱۰",
+          "expiryDate": "۱۴۰۴/۰۷/۱۰"
+        },
+        "features": [
+          "سرشار از ویتامین C",
+          "تقویت سیستم ایمنی",
+          "بهبود هضم غذا",
+          "مناسب برای رژیم لاغری",
+          "انرژی‌زای طبیعی"
+        ],
+        "howToUse": "مصرف به عنوان میان وعده، اضافه به صبحانه، اسموتی و سالاد میوه."
+      },
+      {
+        "id": 16,
+        "name": "فلفل سیاه",
+        "sku": "PR-10016",
+        "brandId": 1,
+        "price": "140,000",
+        "salePrice": "119,000",
+        "categoryId": 3,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/16",
+        "sale": true,
+        "stock": 60,
+        "rating": 4.6,
+        "reviewCount": 88,
+        "description": "فلفل سیاه درجه یک با طعم تند و عطر قوی. مناسب برای انواع غذاها و مصارف دارویی.",
+        "specifications": {
+          "weight": "۲۵۰ گرم",
+          "type": "فلفل سیاه دانه",
+          "origin": "هند",
+          "harvestDate": "۱۴۰۲/۰۸/۱۵",
+          "expiryDate": "۱۴۰۵/۰۸/۱۵"
+        },
+        "features": [
+          "بهبود هضم غذا",
+          "افزایش جذب مواد مغذی",
+          "ضد التهاب طبیعی",
+          "کاهش وزن",
+          "طعم‌دهنده قوی"
+        ],
+        "howToUse": "به مقدار لازم به عنوان ادویه در انواع غذاها، سوپ و خورش استفاده شود."
+      },
+      {
+        "id": 17,
+        "name": "بهار نارنج",
+        "sku": "PR-10017",
+        "brandId": 1,
+        "price": "170,000",
+        "salePrice": "145,000",
+        "categoryId": 1,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/17",
+        "sale": true,
+        "stock": 20,
+        "rating": 4.7,
+        "reviewCount": 105,
+        "description": "بهار نارنج معطر و خالص، مناسب برای دمنوش آرامش‌بخش و تقویت قلب و اعصاب.",
+        "specifications": {
+          "weight": "۱۵۰ گرم",
+          "type": "بهار نارنج خشک",
+          "origin": "شمال ایران",
+          "harvestDate": "۱۴۰۲/۰۲/۱۰",
+          "expiryDate": "۱۴۰۴/۰۲/۱۰"
+        },
+        "features": [
+          "آرامش‌بخش و ضد استرس",
+          "تقویت قلب و اعصاب",
+          "رفع بی‌خوابی",
+          "ضد افسردگی طبیعی",
+          "رفع سردردهای عصبی"
+        ],
+        "howToUse": "یک قاشق غذاخوری بهار نارنج را در یک لیوان آب جوش به مدت ۱۰ دقیقه دم کنید."
+      },
+      {
+        "id": 18,
+        "name": "آلو بخارا",
+        "sku": "PR-10018",
+        "brandId": 1,
+        "price": "160,000",
+        "salePrice": "135,000",
+        "categoryId": 2,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/18",
+        "sale": true,
+        "stock": 32,
+        "rating": 4.5,
+        "reviewCount": 81,
+        "description": "آلو بخارا خشک طبیعی، شیرین و ترش. مناسب برای میان وعده و مصارف دارویی.",
+        "specifications": {
+          "weight": "۵۰۰ گرم",
+          "type": "آلو بخارا خشک",
+          "origin": "قزوین",
+          "harvestDate": "۱۴۰۲/۰۷/۰۵",
+          "expiryDate": "۱۴۰۴/۰۷/۰۵"
+        },
+        "features": [
+          "رفع یبوست طبیعی",
+          "تقویت سیستم گوارش",
+          "منبع آهن و پتاسیم",
+          "کاهش کلسترول",
+          "انرژی‌زای طبیعی"
+        ],
+        "howToUse": "مصرف به عنوان میان وعده، خیس کرده در آب برای رفع یبوست، استفاده در خورش‌ها."
+      },
+      {
+        "id": 19,
+        "name": "زنجبیل",
+        "sku": "PR-10019",
+        "brandId": 1,
+        "price": "200,000",
+        "salePrice": "169,000",
+        "categoryId": 3,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/19",
+        "sale": true,
+        "stock": 48,
+        "rating": 4.8,
+        "reviewCount": 167,
+        "description": "زنجبیل خالص و با کیفیت، مناسب برای دمنوش و ادویه. تقویت سیستم ایمنی و کمک به هضم.",
+        "specifications": {
+          "weight": "۳۰۰ گرم",
+          "type": "زنجبیل خشک",
+          "origin": "چین",
+          "harvestDate": "۱۴۰۲/۰۶/۲۰",
+          "expiryDate": "۱۴۰۵/۰۶/۲۰"
+        },
+        "features": [
+          "تقویت سیستم ایمنی",
+          "رفع حالت تهوع",
+          "کاهش التهاب مفاصل",
+          "کمک به هضم غذا",
+          "بهبود گردش خون"
+        ],
+        "howToUse": "یک قاشق چایخوری زنجبیل پودر شده را در آب جوش به مدت ۱۰ دقیقه دم کنید."
+      },
+      {
+        "id": 20,
+        "name": "گل سرخ",
+        "sku": "PR-10020",
+        "brandId": 1,
+        "price": "260,000",
+        "salePrice": "219,000",
+        "categoryId": 1,
+        "image": "/images/test/Frame-357.png",
+        "gallery": [
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png",
+          "/images/test/Frame-357.png"
+        ],
+        "link": "/product/20",
+        "sale": true,
+        "stock": 15,
+        "rating": 4.7,
+        "reviewCount": 123,
+        "description": "گل سرخ معطر و خالص، مناسب برای دمنوش آرامش‌بخش و تقویت قلب و اعصاب.",
+        "specifications": {
+          "weight": "۲۰۰ گرم",
+          "type": "گل سرخ خشک",
+          "origin": "کاشان",
+          "harvestDate": "۱۴۰۲/۰۳/۱۵",
+          "expiryDate": "۱۴۰۴/۰۳/۱۵"
+        },
+        "features": [
+          "ایجاد آرامش و کاهش استرس",
+          "تقویت قلب و اعصاب",
+          "ضد افسردگی طبیعی",
+          "رفع بی‌خوابی",
+          "رایحه‌ای دلنشین"
+        ],
+        "howToUse": "یک قاشق غذاخوری گل سرخ را در یک لیوان آب جوش به مدت ۱۰ دقیقه دم کنید."
+      }
+    ]
+  }
+}

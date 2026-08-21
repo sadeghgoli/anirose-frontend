@@ -1,0 +1,24 @@
+
+> aniroz@1.0.0 dev
+> next dev
+
+▲ Next.js 16.2.12 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.100.77:3000
+- Environments: .env
+✓ Ready in 718ms
+
+ GET / 200 in 2.1s (next.js: 792ms, application-code: 1262ms)
+ GET /api/v1/categories 200 in 2.4s (next.js: 1235ms, application-code: 1180ms)
+ GET /api/v1/categories 200 in 1421ms (next.js: 20ms, application-code: 1401ms)
+ GET /api/v1/products?per_page=2 200 in 819ms (next.js: 24ms, application-code: 795ms)
+ GET /api/v1/provinces 200 in 729ms (next.js: 7ms, application-code: 721ms)
+ GET /api/v1/shipping-methods 200 in 1213ms (next.js: 22ms, application-code: 1191ms)
+ GET /api/v1/type-of-weights 200 in 365ms (next.js: 6ms, application-code: 359ms)
+ GET /api/v1/articles?per_page=2 200 in 358ms (next.js: 22ms, application-code: 337ms)
+ GET /api/v1/contact-settings 200 in 336ms (next.js: 9ms, application-code: 327ms)
+ GET /api/v1/cart 404 in 1453ms (next.js: 19ms, application-code: 1433ms)
+ POST /api/v1/cart/items 404 in 1393ms (next.js: 18ms, application-code: 1374ms)
+ GET /api/v1/cart 404 in 2.0s (next.js: 23ms, application-code: 1978ms)
+ POST /api/v1/auth/send-otp 200 in 1463ms (next.js: 32ms, application-code: 1431ms)
+[?25h

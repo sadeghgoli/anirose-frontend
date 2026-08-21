@@ -1,0 +1,41 @@
+{
+  "status": "success",
+  "data": {
+    "slides": [
+      {
+        "id": 1,
+        "title": "گل محمدی",
+        "subtitle": "به طراوت و عطر زندگی",
+        "description": "",
+        "badgeText": "گل محمدی",
+        "buttonText": "مشاهده محصولات",
+        "buttonLink": "/shop",
+        "image": "/images/test/Frame-357.png",
+        "bgImage": "/images/test/Frame-347-scaled.jpg",
+        "leafImage": "/images/test/Asset-1-3-1.png"
+      },
+      {
+        "id": 2,
+        "title": "گل مریم",
+        "subtitle": "به طراوت و عطر زندگی",
+        "description": "",
+        "badgeText": "گل مریم",
+        "buttonText": "مشاهده محصولات",
+        "buttonLink": "/shop",
+        "image": "/images/test/Frame-357.png",
+        "bgImage": "/images/test/Frame-347-scaled2.jpg",
+        "leafImage": "/images/test/Asset-1-3-1.png"
+      }
+    ],
+    "settings": {
+      "autoplay": true,
+      "autoplaySpeed": 3000,
+      "animationSpeed": 300,
+      "pauseOnHover": true,
+      "arrows": true,
+      "dots": false,
+      "slidesToShow": 1,
+      "slidesToScroll": 1
+    }
+  }
+}
