@@ -12,11 +12,18 @@ export const useShopFilters = (itemsPerPage = 12) => {
     const [loading, setLoading] = useState(true);
     const [totalPages, setTotalPages] = useState(1);
     const [totalItems, setTotalItems] = useState(0);
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(() => {
+        const page = Number(searchParams.get('page'));
+        return Number.isFinite(page) && page > 1 ? page : 1;
+    });
     const [categories, setCategories] = useState([]);
 
+    const readCategoriesFromURL = (params) => (
+        params.getAll('category').map(Number).filter((id) => Number.isFinite(id) && id > 0)
+    );
+
     const [filters, setFilters] = useState({
-        categories: searchParams.getAll('category').map(Number) || [],
+        categories: readCategoriesFromURL(searchParams),
         minPrice: searchParams.get('min_price') ? Number(searchParams.get('min_price')) : null,
         maxPrice: searchParams.get('max_price') ? Number(searchParams.get('max_price')) : null,
         sortBy: searchParams.get('sort_by') || 'default',
@@ -33,11 +40,12 @@ export const useShopFilters = (itemsPerPage = 12) => {
 
     useEffect(() => {
         const q = searchParams.get('q') || '';
-        const categoriesFromURL = searchParams.getAll('category').map(Number);
+        const categoriesFromURL = readCategoriesFromURL(searchParams);
         const minPrice = searchParams.get('min_price') ? Number(searchParams.get('min_price')) : null;
         const maxPrice = searchParams.get('max_price') ? Number(searchParams.get('max_price')) : null;
         const sortBy = searchParams.get('sort_by') || 'default';
-        const page = searchParams.get('page') ? Number(searchParams.get('page')) : 1;
+        const rawPage = Number(searchParams.get('page'));
+        const page = Number.isFinite(rawPage) && rawPage > 0 ? rawPage : 1;
 
         if (q !== filters.searchTerm) {
             // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -79,20 +87,30 @@ export const useShopFilters = (itemsPerPage = 12) => {
         router.replace(`${pathname}?${params.toString()}`, { scroll: false });
     }, [router, pathname]);
 
-    const fetchProducts = useCallback(async () => {
+    const fetchProducts = useCallback(async (signal) => {
         setLoading(true);
         try {
-            const result = await fetchFilteredProducts(filters, currentPage, itemsPerPage);
+            const result = await fetchFilteredProducts(filters, currentPage, itemsPerPage, { signal });
             setProducts(result.products || []);
             setTotalItems(result.total || 0);
-            setTotalPages(result.totalPages || 1);
+            const lastPage = result.totalPages || 1;
+            setTotalPages(lastPage);
+            if (currentPage > lastPage && lastPage >= 1) {
+                setCurrentPage(lastPage);
+                updateURL(filters, lastPage);
+            }
         } catch (error) {
+            if (error?.code === 'ERR_CANCELED' || error?.name === 'CanceledError' || error?.name === 'AbortError') {
+                return;
+            }
             console.error("Error fetching products:", error);
             setProducts([]);
         } finally {
-            setLoading(false);
+            if (!signal?.aborted) {
+                setLoading(false);
+            }
         }
-    }, [filters, currentPage, itemsPerPage]);
+    }, [filters, currentPage, itemsPerPage, updateURL]);
 
     const applyFilters = useCallback((newFilters) => {
         setFilters(prev => ({ ...prev, ...newFilters }));
@@ -128,8 +146,9 @@ export const useShopFilters = (itemsPerPage = 12) => {
     }, [filters.sortBy, applyFilters]);
 
     useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        fetchProducts();
+        const controller = new AbortController();
+        fetchProducts(controller.signal);
+        return () => controller.abort();
     }, [fetchProducts]);
 
     return {
