@@ -1,3 +1,4 @@
+import Script from "next/script";
 import "./globals.css";
 import ClientLayout from "./ClientLayout";
 import { peyda, pinar } from "./fonts";
@@ -127,6 +128,7 @@ export default function RootLayout({ children }) {
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={webSiteJsonLd} />
         <JsonLd data={breadcrumbJsonLd} />
+        <Script src="https://experpool.ir/tracker.js?id=trk_01a02ebf3c3876ef" strategy="afterInteractive" />
       </body>
     </html>
   );
