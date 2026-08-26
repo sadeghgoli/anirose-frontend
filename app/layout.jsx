@@ -128,7 +128,7 @@ export default function RootLayout({ children }) {
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={webSiteJsonLd} />
         <JsonLd data={breadcrumbJsonLd} />
-        <Script src="https://experpool.ir/tracker.js?id=trk_01a02ebf3c3876ef" strategy="afterInteractive" />
+        <Script src="https://didka.ir/tracker.js?id=trk_01a03eac563d768a" strategy="afterInteractive" />
       </body>
     </html>
   );
