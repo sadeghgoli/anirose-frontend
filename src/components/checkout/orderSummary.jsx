@@ -125,7 +125,7 @@ const OrderSummary = ({ cart, updating, formatPrice, onSubmitOrder, submitting }
                         <div className="woocommerce-info flex items-center gap-3 p-3 bg-emerald-50 border-t-4 border-[#64a39a] text-gray-700 text-sm">
                             <AlertCircle size={20} className="flex-shrink-0 text-[#64a39a]" />
                             <p className="text-sm">
-                                پس از ثبت سفارش به درگاه پرداخت آنلاین ایران‌درگاه هدایت می‌شوید.
+                                پس از ثبت سفارش به درگاه پرداخت آنلاین بیت‌پی هدایت می‌شوید.
                             </p>
                         </div>
                     </li>
