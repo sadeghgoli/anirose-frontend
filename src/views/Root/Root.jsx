@@ -22,7 +22,6 @@ const Root = () => {
       <HeroSlider />
       <LazyCategories />
       <SaleSection />
-      <DoubleBanner />
 
       <LazyCategoryProductSlider />
       <TraditionalConsultation />
