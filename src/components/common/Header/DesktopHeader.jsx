@@ -21,12 +21,15 @@ const CartIcon = () => (
   </svg>
 );
 
+const DOTS_SLOT = 44;
+const LINK_CLASS = "inline-block px-[6px] sm:px-[9px] py-[5px] text-xs sm:text-sm md:text-base font-normal whitespace-nowrap";
+
 const OverflowNav = ({ items = [], isActiveLink, className = "", justify = "end" }) => {
   const containerRef = useRef(null);
-  const innerRef = useRef(null);
   const probeRefs = useRef([]);
-  const dotsRef = useRef(null);
   const hoverTimeout = useRef(null);
+  const retryRef = useRef(0);
+  const frameRef = useRef(0);
 
   const [visibleCount, setVisibleCount] = useState(items.length);
   const [showDots, setShowDots] = useState(false);
@@ -34,34 +37,33 @@ const OverflowNav = ({ items = [], isActiveLink, className = "", justify = "end"
 
   const justifyClass = justify === "start" ? "justify-end" : "justify-start";
 
-  useEffect(() => {
-    probeRefs.current = [];
-    setVisibleCount(items.length);
-    setShowDots(false);
-    setShowAll(false);
-  }, [items]);
-
   const calculate = useCallback(() => {
     const container = containerRef.current;
     if (!container || !items.length) return;
 
     const containerWidth = container.clientWidth;
-    if (!containerWidth) return;
+    const widths = items.map((_, index) => probeRefs.current[index]?.offsetWidth || 0);
 
-    const widths = probeRefs.current.map((el) => el?.getBoundingClientRect().width || 0);
-    if (widths.some((w) => w === 0)) return;
+    if (!containerWidth || widths.some((width) => width === 0)) {
+      if (retryRef.current < 30) {
+        retryRef.current += 1;
+        cancelAnimationFrame(frameRef.current);
+        frameRef.current = requestAnimationFrame(() => calculate());
+      }
+      return;
+    }
 
-    const totalWidth = widths.reduce((sum, w) => sum + w, 0);
+    retryRef.current = 0;
+    const totalWidth = widths.reduce((sum, width) => sum + width, 0);
 
     if (totalWidth <= containerWidth) {
       setVisibleCount(items.length);
       setShowDots(false);
+      setShowAll(false);
       return;
     }
 
-    const dotsWidth = dotsRef.current?.getBoundingClientRect().width || 40;
-    const availableWidth = Math.max(0, containerWidth - dotsWidth);
-
+    const availableWidth = Math.max(0, containerWidth - DOTS_SLOT);
     let usedWidth = 0;
     let count = 0;
 
@@ -71,23 +73,37 @@ const OverflowNav = ({ items = [], isActiveLink, className = "", justify = "end"
       count += 1;
     }
 
-    if (count < 1) count = 1;
-
     setVisibleCount(count);
-    setShowDots(count < items.length);
+    setShowDots(true);
   }, [items]);
 
   useLayoutEffect(() => {
-    const run = () => calculate();
-    requestAnimationFrame(run);
+    let cancelled = false;
+    retryRef.current = 0;
+    calculate();
 
     const container = containerRef.current;
-    if (!container) return undefined;
+    const observer = new ResizeObserver(() => {
+      if (cancelled) return;
+      retryRef.current = 0;
+      calculate();
+    });
+    if (container) observer.observe(container);
 
-    const observer = new ResizeObserver(run);
-    observer.observe(container);
+    const onFonts = () => {
+      if (cancelled) return;
+      retryRef.current = 0;
+      calculate();
+    };
+    document.fonts?.ready?.then(onFonts);
+    document.fonts?.addEventListener?.("loadingdone", onFonts);
 
-    return () => observer.disconnect();
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frameRef.current);
+      observer.disconnect();
+      document.fonts?.removeEventListener?.("loadingdone", onFonts);
+    };
   }, [calculate]);
 
   const hiddenItems = items.slice(visibleCount);
@@ -103,30 +119,30 @@ const OverflowNav = ({ items = [], isActiveLink, className = "", justify = "end"
 
   return (
     <div ref={containerRef} className={`relative flex items-center w-full overflow-visible ${className}`}>
-      <div
-        ref={innerRef}
-        className={`flex-1 min-w-0 flex items-center flex-nowrap overflow-hidden ${justifyClass}`}
-      >
-        <div aria-hidden="true" className="absolute inset-0 pointer-events-none opacity-0 whitespace-nowrap overflow-hidden">
-          {items.map((item, index) => (
-            <Link
-              key={item.id}
-              href={item.link}
-              ref={(el) => {
-                probeRefs.current[index] = el;
-              }}
-              className="inline-block px-[6px] sm:px-[9px] py-[5px] text-xs sm:text-sm md:text-base whitespace-nowrap"
-            >
-              {item.title}
-            </Link>
-          ))}
+      <div className={`flex-1 min-w-0 flex items-center flex-nowrap overflow-hidden ${justifyClass}`}>
+        <div aria-hidden="true" className="absolute w-0 h-0 overflow-hidden">
+          <div className="flex flex-nowrap w-max">
+            {items.map((item, index) => (
+              <Link
+                key={item.id}
+                href={item.link}
+                tabIndex={-1}
+                ref={(el) => {
+                  probeRefs.current[index] = el;
+                }}
+                className={LINK_CLASS}
+              >
+                {item.title}
+              </Link>
+            ))}
+          </div>
         </div>
 
         {items.slice(0, visibleCount).map((item) => (
           <Link
             key={item.id}
             href={item.link}
-            className="inline-block px-[6px] sm:px-[9px] py-[5px] no-underline text-xs sm:text-sm md:text-base font-normal whitespace-nowrap flex-shrink-0"
+            className={`${LINK_CLASS} no-underline flex-shrink-0`}
             style={{
               color: isActiveLink(item.link) ? "#0c5505" : "#6f6f6f",
             }}
@@ -138,14 +154,19 @@ const OverflowNav = ({ items = [], isActiveLink, className = "", justify = "end"
 
       {showDots && (
         <div
-          ref={dotsRef}
           className="relative flex-shrink-0 w-[40px] flex justify-center"
           onMouseEnter={handleEnter}
           onMouseLeave={handleLeave}
         >
-          <span className="cursor-pointer px-2 py-1 text-sm font-bold text-[#6f6f6f] hover:text-[#0c5505] select-none">
+          <button
+            type="button"
+            aria-label="سایر گزینه‌های منو"
+            aria-expanded={showAll}
+            onClick={() => setShowAll((open) => !open)}
+            className="cursor-pointer px-2 py-1 text-sm font-bold text-[#6f6f6f] hover:text-[#0c5505] select-none bg-transparent border-none"
+          >
             ...
-          </span>
+          </button>
 
           {showAll && (
             <div className="absolute top-full right-0 mt-2 bg-white shadow-lg border border-gray-100 rounded-lg z-[99999] max-h-[300px] overflow-y-auto py-1 min-w-[180px]">
