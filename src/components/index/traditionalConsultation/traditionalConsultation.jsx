@@ -42,7 +42,7 @@ const TraditionalConsultation = () => {
             <div className="w-full md:w-5/12 p-6 md:p-10 flex items-center justify-center">
 
                 <Link
-                  href="/shop"
+                  href="/doctors"
                   className="relative w-100 flex items-center p-2 justify-center rounded-lg  shadow-[0_0_60px_rgba(100,163,154,0.4)] hover:shadow-[0_0_80px_rgba(100,163,154,0.6)] hover:scale-105 transition-all duration-300 group"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"

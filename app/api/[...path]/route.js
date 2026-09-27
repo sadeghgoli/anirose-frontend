@@ -1,7 +1,7 @@
 const BACKEND_API_URL =
   process.env.BACKEND_API_URL ||
   process.env.NEXT_PUBLIC_API_URL ||
-  'https://aniroseco.ir/backend/api/v1/';
+  'https://server.aniroseco.ir/api/v1/';
 
 const passthroughHeaders = new Set([
   'accept',
@@ -16,7 +16,7 @@ const passthroughHeaders = new Set([
 
 export const dynamic = 'force-dynamic';
 
-export async function handler(req, { params }) {
+async function proxy(req, { params }) {
   const { path: pathParts } = await params;
   const versioned = pathParts || [];
   const path = versioned.slice(1).join('/');
@@ -118,8 +118,22 @@ export async function handler(req, { params }) {
   });
 }
 
-export const GET = handler;
-export const POST = handler;
-export const PUT = handler;
-export const PATCH = handler;
-export const DELETE = handler;
+export function GET(req, ctx) {
+  return proxy(req, ctx);
+}
+
+export function POST(req, ctx) {
+  return proxy(req, ctx);
+}
+
+export function PUT(req, ctx) {
+  return proxy(req, ctx);
+}
+
+export function PATCH(req, ctx) {
+  return proxy(req, ctx);
+}
+
+export function DELETE(req, ctx) {
+  return proxy(req, ctx);
+}

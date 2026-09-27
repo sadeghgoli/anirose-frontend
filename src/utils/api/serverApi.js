@@ -3,7 +3,7 @@ import { cache } from 'react';
 const SERVER_BASE_URL =
   process.env.BACKEND_API_URL ||
   process.env.NEXT_PUBLIC_API_URL ||
-  'https://aniroseco.ir/backend/api/v1/';
+  'https://server.aniroseco.ir/api/v1/';
 
 const REVALIDATE_SECONDS = 40;
 
