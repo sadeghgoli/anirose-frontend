@@ -226,7 +226,7 @@ const SaleSectionContent = ({ products }) => {
                 Anirose discounts
               </h3>
               <h2 className="text-lg whitespace-nowrap sm:text-xl md:text-2xl font-bold text-[#0C5505]">
-                حراجی های آنی رز
+                تخفیفات ویژه
               </h2>
             </div>
 

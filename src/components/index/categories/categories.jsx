@@ -2,10 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
 import { fetchCategoriesData } from "../../../utils/api/categoriesService/categoriesService.js";
 import CategoriesSkeleton from "../../skeleton/Categories/CategoriesSkeleton.jsx";
 
@@ -67,102 +63,44 @@ const Categories = () => {
                 </div>
             </div>
 
-            {/* اسلایدر دسته‌بندی‌ها */}
-            <div className="relative">
-                <Swiper
-                    modules={[Autoplay, Navigation]}
-                    spaceBetween={20}
-                    slidesPerView={2}
-                    autoplay={{
-                        delay: 3000,
-                        disableOnInteraction: true,
-                        pauseOnMouseEnter: true,
-                    }}
-                    navigation={{
-                        nextEl: '.categories-next',
-                        prevEl: '.categories-prev',
-                    }}
-                    breakpoints={{
-                        640: {
-                            slidesPerView: 3,
-                            spaceBetween: 20,
-                        },
-                        768: {
-                            slidesPerView: 3,
-                            spaceBetween: 24,
-                        },
-                        1024: {
-                            slidesPerView: 4,
-                            spaceBetween: 24,
-                        },
-                        1280: {
-                            slidesPerView: 4,
-                            spaceBetween: 2,
-                        },
-                    }}
-                    className="py-2"
-                >
-                    {categories.map((category) => (
-                        <SwiperSlide key={category.id}>
-                            <Link
-                                href={`/shop?category=${category.id}`}
-                                className="block group"
-                                prefetch={false}
-                            >
-                                <div className="relative rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105">
-                                    {/* تصویر پس‌زمینه */}
-                                    <div className="relative w-full aspect-square">
-                                        <Image
-                                            src="/images/test/1-min-2-1.png"
-                                            alt={category.name}
-                                            fill
-                                            className="object-cover"
-                                            sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-                                            priority={false}
-                                        />
-                                    </div>
-                                    
-                                    {/* محتوای روی تصویر */}
-                                    <div className="absolute inset-0 flex flex-col items-center justify-center mb-4">
-                                        <div className="relative w-18 h-18 sm:w-22 sm:h-22 lg:w-22 lg:h-22">
-                                            <Image
-                                                src={category.image || "/images/test/placeholder.jpg"}
-                                                alt={category.name}
-                                                fill
-                                                className="rounded-full object-contain"
-                                                sizes="(max-width: 640px) 72px, (max-width: 1024px) 88px, 88px"
-                                                priority={false}
-                                            />
-                                        </div>
-                                        <span className="text-[#334155] mt-8 font-bold px-3 sm:px-4 rounded-full text-xs sm:text-sm lg:text-base overflow-hidden text-ellipsis whitespace-nowrap block text-center w-8/10">
-    {category.name}
-</span>
-                                    </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                {categories.map((category) => (
+                    <Link
+                        key={category.id}
+                        href={`/shop?category=${category.id}`}
+                        className="block group"
+                        prefetch={false}
+                    >
+                        <div className="relative rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105">
+                            <div className="relative w-full aspect-square">
+                                <Image
+                                    src="/images/test/1-min-2-1.png"
+                                    alt={category.name}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 50vw, 25vw"
+                                    priority={false}
+                                />
+                            </div>
+
+                            <div className="absolute inset-0 flex flex-col items-center justify-center mb-4">
+                                <div className="relative w-18 h-18 sm:w-22 sm:h-22 lg:w-22 lg:h-22">
+                                    <Image
+                                        src={category.image || "/images/test/placeholder.jpg"}
+                                        alt={category.name}
+                                        fill
+                                        className="rounded-full object-contain"
+                                        sizes="(max-width: 640px) 72px, (max-width: 1024px) 88px, 88px"
+                                        priority={false}
+                                    />
                                 </div>
-                            </Link>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-
-                {/* دکمه قبلی */}
-                <button
-                    className="categories-prev absolute -left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center cursor-pointer"
-                    aria-label="اسلاید قبلی"
-                >
-                    <svg className="w-5 h-5 text-[#0c5505]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-
-                {/* دکمه بعدی */}
-                <button
-                    className="categories-next absolute -right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center cursor-pointer"
-                    aria-label="اسلاید بعدی"
-                >
-                    <svg className="w-5 h-5 text-[#0c5505]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
+                                <span className="text-[#334155] mt-8 font-bold px-3 sm:px-4 rounded-full text-xs sm:text-sm lg:text-base overflow-hidden text-ellipsis whitespace-nowrap block text-center w-8/10">
+                                    {category.name}
+                                </span>
+                            </div>
+                        </div>
+                    </Link>
+                ))}
             </div>
         </section>
     );
