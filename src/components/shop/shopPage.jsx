@@ -67,7 +67,7 @@ const ShopPage = () => {
                             </label>
                         </div>
                         <ProductGrid products={products || []} loading={loading} categories={categories} />
-                        {totalPages > 1 && (
+                        {!loading && totalPages > 1 && (
                             <Pagination
                                 currentPage={currentPage}
                                 totalPages={totalPages}

@@ -59,7 +59,7 @@ const serializeProductParams = (params) => {
   Object.entries(params).forEach(([key, value]) => {
     if (value == null || value === '') return;
     if (Array.isArray(value)) {
-      value.forEach((item) => search.append(`${key}[]`, String(item)));
+      value.forEach((item) => search.append(key, String(item)));
       return;
     }
     search.set(key, String(value));

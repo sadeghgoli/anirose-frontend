@@ -1,5 +1,5 @@
 'use client'
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { fetchFilteredProducts } from '../api/services/products.js';
 import { fetchCategories } from '../api/services/categories.js';
@@ -11,7 +11,7 @@ export const useShopFilters = (itemsPerPage = 12) => {
     const pathname = usePathname();
 
     const query = useMemo(() => parseShopQuery(searchParams), [searchParams]);
-    const queryKey = useMemo(() => shopHref(query, pathname), [query, pathname]);
+    const fetchGenerationRef = useRef(0);
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -47,8 +47,8 @@ export const useShopFilters = (itemsPerPage = 12) => {
 
     useEffect(() => {
         const controller = new AbortController();
-        let cancelled = false;
-        const currentQuery = parseShopQuery(new URL(queryKey, 'http://localhost').searchParams);
+        const generation = ++fetchGenerationRef.current;
+        const currentQuery = parseShopQuery(searchParams);
 
         const load = async () => {
             setLoading(true);
@@ -56,9 +56,10 @@ export const useShopFilters = (itemsPerPage = 12) => {
                 const result = await fetchFilteredProducts(currentQuery, currentQuery.page, itemsPerPage, {
                     signal: controller.signal,
                 });
-                if (cancelled) return;
-                setProducts(result.products || []);
-                setTotalItems(result.total || 0);
+                if (generation !== fetchGenerationRef.current) return;
+                const rows = result.products || [];
+                setProducts(rows);
+                setTotalItems(result.total ?? rows.length);
                 const lastPage = Math.max(1, result.totalPages || 1);
                 setTotalPages(lastPage);
                 if (currentQuery.page > lastPage) {
@@ -69,13 +70,9 @@ export const useShopFilters = (itemsPerPage = 12) => {
                 if (error?.code === 'ERR_CANCELED' || error?.name === 'CanceledError' || error?.name === 'AbortError') {
                     return;
                 }
-                if (!cancelled) {
-                    setProducts([]);
-                    setTotalItems(0);
-                    setTotalPages(1);
-                }
+                if (generation !== fetchGenerationRef.current) return;
             } finally {
-                if (!cancelled && !controller.signal.aborted) {
+                if (generation === fetchGenerationRef.current) {
                     setLoading(false);
                 }
             }
@@ -83,10 +80,9 @@ export const useShopFilters = (itemsPerPage = 12) => {
 
         load();
         return () => {
-            cancelled = true;
             controller.abort();
         };
-    }, [queryKey, itemsPerPage, pathname, router]);
+    }, [searchParams, itemsPerPage, pathname, router]);
 
     const applyFilters = useCallback((partial) => {
         setQuery({ ...partial, page: 1 });
